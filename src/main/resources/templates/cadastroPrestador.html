@@ -1,12 +1,12 @@
 <!DOCTYPE html SYSTEM "https://thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
     <head>
 		<meta charset="utf-8">
 		<meta name="author" content="Hora Marcada">
 		<title th:text="#{cadastroP.text}"></title>
 		<link rel="stylesheet" href="css/style2.css">
-		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 	</head>
     <body>
         <!--<header>
@@ -33,10 +33,10 @@
                     <input name ="estado" type="text" th:placeholder="#{estado.text}" />
                     <p id="cad" th:text="#{localT.text}"></p>
 
-                    <select name="localtrabalho" >
+                    <!--<select name="localtrabalho" >
                         <option value="DOMICÍLIO"  th:text="#{domicilio.text}" ></option>
                         <option value="STUDIO"  th:text="#{studio.text}" ></option>
-                    </select>
+                    </select>-->
                     <label id="termoco"  th:text="#{termos.text}"></label>
                     <input type="checkbox" name="termos" id="termo" checked/>
                     <a th:href="@{/cadastroConsumidor}"  th:text="#{redirect_consumidor.text}"></a> 
