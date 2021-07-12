@@ -28,7 +28,7 @@ public class UsuarioController {
     ConsumidorRepository consumidorRepository;
 
     @Autowired
-    PrestadorRepository PrestadorRepository;
+    PrestadorRepository prestadorRepository;
 
     @Autowired
     private ServiceUsuario usuarioService;

@@ -18,10 +18,13 @@ import org.springframework.validation.annotation.Validated;
 public class PrestadorController {
 
     @Autowired
-    PrestadorRepository prestadorRepository;
+    UsuarioRepository usuarioRepository;
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    ConsumidorRepository consumidorRepository;
+
+    @Autowired
+    PrestadorRepository prestadorRepository;
 
     //@GetMapping()
     //public String listaPrestadores(Model model) {
