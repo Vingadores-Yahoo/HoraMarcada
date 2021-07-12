@@ -1,8 +1,5 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 import VingadoresDoYahoo.HoraMarcada.models.LocalTrabalho;
 
 public class CadastroPrestador {
@@ -18,7 +15,6 @@ public class CadastroPrestador {
     private String cidade;
     private String estado;
     
-    @Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 
     public CadastroPrestador() {}
@@ -127,6 +123,5 @@ public class CadastroPrestador {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
 
 }
