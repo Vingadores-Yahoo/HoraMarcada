@@ -25,6 +25,12 @@ public class UsuarioController {
     UsuarioRepository usuarioRepository;
 
     @Autowired
+    ConsumidorRepository consumidorRepository;
+
+    @Autowired
+    PrestadorRepository PrestadorRepository;
+
+    @Autowired
     private ServiceUsuario usuarioService;
 
     @GetMapping("/home")
