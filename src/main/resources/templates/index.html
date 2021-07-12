@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Hora Marcada">
+    <title>Página Inicial</title>
+    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style2.css" media="screen" >
+  </head>
+  <body class="index">
+    <div>
+      <strong>Seja Bem Vindo: <span th:text="${session.usuarioLogado.nome}"></span> </strong>
+    </div>
+    <nav id="menu">
+      <a th:href="@{/home}"><img src="fotos/logo.png" class="logo"></a>
+      <div class="pesquisa">
+        <div class="container-1">
+          <img src="fotos/lupa.png" class="icon" width="15px" height="15px">
+          <input type="search" id="search" placeholder="Pesquisar..." />
+        </div> 
+      </div>
+      <div class="menu-text">
+        <a href="#" class="home-menu" th:text="#{home_button.text}"></a>
+      </div>
+      <div class="menu-item">
+        <div class="menu-text">
+          <a><img src="https://s-media-cache-ak0.pinimg.com/originals/28/c7/ad/28c7adffc9af705dcd8a8b77b1a9c0e8.jpg" alt="Foto de Perfil" id="icon-perfil" /></a>
+        </div>
+        <div class="sub-menu">
+          <div class="icon-box">
+              <div class="text">
+                  <div class="sub-text"><a th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
+              </div>
+          </div>
+          <div class="icon-box">
+              <div class="text">
+                  <div class="sub-text" th:text="#{icon_item2.text}"><i class="far fa-arrow-right"></i></div>
+              </div>
+          </div>
+          <div class="icon-box">
+            <div class="text">
+              <form action="/logout" method="post">
+                <div class="sub-text"><button type="submit" th:text="#{icon_item3.text}"></button><i class="far fa-arrow-right"></i></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sub-menu-container">
+        <div id="sub-menu-holder">
+            <div id="sub-menu-bottom"></div>
+        </div>
+      </div>
+    </nav>
+    <div>
+      <nav id="primary_nav_wrap">
+        <ul>
+          <li class="current-menu-item"><a href="#" th:text="#{servico1.text}"></a></li>
+          <li><a href="#" th:text="#{servico2.text}"></a>
+          <li><a href="#" th:text="#{servico3.text}"></a>
+          <li><a href="#" th:text="#{servico4.text}"></a>
+          <li><a href="#" th:text="#{servico5.text}"></a></li>
+        </ul>
+      </nav> 
+    </div> 
+    <div class="content"> 
+      <div class="card_medium">
+        <div class="mediaCard1"></div> 
+        <div class="topcard">
+          <h3 class="title">Glória, ZN</h3>
+        </div>
+      </div> 
+
+      <div class="card_large">
+        <div class="mediaCard2"></div> 
+        <div class="topcard">
+          <h3 class="title">Júlio, ZN</h3>
+        </div>
+      </div> 
+
+      <div class="card_small">
+        <div class="mediaCard3"></div> 
+        <div class="topcard">
+          <h3 class="title">Viviane, ZL</h3>
+        </div>
+      </div> 
+
+      <div class="card_small">
+          <div class="mediaCard4"></div> 
+          <div class="topcard">
+            <h3 class="title">José, ZN</h3>
+          </div> 
+      </div> 
+
+      <div class="card_medium">
+        <div class="mediaCard5"></div> 
+        <div class="topcard">
+          <h3 class="title">Sonia, ZS</h3>
+        </div>
+      </div>  
+    </div> 
+  </body>
+</html>

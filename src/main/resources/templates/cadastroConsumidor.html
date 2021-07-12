@@ -1,0 +1,48 @@
+<!DOCTYPE >
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<meta charset="utf-8">
+		<meta name="author" content="Hora Marcada">
+		<title th:text="#{cadastroC.text}"></title>
+		<link rel="stylesheet" href="/css/style2.css">
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+
+    <body>
+        <!--<header>
+                <div class="box">
+                    <div class="container-1">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input type="search" id="search" placeholder="Search..." />
+                    </div>
+                </div>		
+        </header> -->
+        <div class="container" id="container">
+            <div class="form-container sign-up-container"></div>
+            <div class="form-container sign-in-container">
+                <form th:action="@{/cadastroConsumidor}" th:method="post" >
+                <h1 th:text="#{cadastroC.text}"></h1>
+                    <input name="nome" type="text" th:placeholder="#{nome.text}" >
+                    <input name="email" type="email" th:placeholder="#{email.text}" />
+                    <input name="telefone" type="tel" th:placeholder="#{tel_cel.text}" />
+                    <input name="endereco" th:placeholder="#{endereco.text}" />
+                    <input name="senha" type="password" th:placeholder="#{senha.text}" />
+                    <input name="confsenha" type="password" th:placeholder="#{confsenha.text}" />
+                    <label id="termo" th:text="#{termos.text}"></label>
+                    <input name="termos" type="checkbox" id="termo" checked/>
+                    <a th:href="@{/cadastroPrestador}" th:text="#{redirect_prestador.text}" class="cadastro_ps"> </a>
+                    <button type="submit" class="confirmar" th:text="#{button_confirm.text}"></button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="cadastro overlay-panel overlay-right">
+                        <h2 th:text="#{pergunta1.text}"></h2>
+                        <a th:href="@{/}"><button class="ghost" th:text="#{entrar.text}"></button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
