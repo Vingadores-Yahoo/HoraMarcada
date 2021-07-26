@@ -36,14 +36,14 @@ public class UsuarioController {
     @GetMapping("/home")
     public static ModelAndView index() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/index");
+        mv.setViewName("index");
         return mv;
     }
 
     @GetMapping("/")
     public static ModelAndView login(){
     	ModelAndView mv = new ModelAndView();
-        mv.setViewName("/login");
+        mv.setViewName("login");
         return mv;
     }
 
