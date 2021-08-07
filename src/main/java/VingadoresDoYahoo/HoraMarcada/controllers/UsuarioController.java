@@ -2,20 +2,24 @@ package VingadoresDoYahoo.HoraMarcada.controllers;
 
 import org.springframework.stereotype.Controller;
 
-import java.security.NoSuchAlgorithmException;
-import javax.servlet.http.HttpSession;
 
 import VingadoresDoYahoo.HoraMarcada.repositories.*;
+
+/*
+import java.security.NoSuchAlgorithmException;
+import javax.servlet.http.HttpSession;
 import VingadoresDoYahoo.HoraMarcada.services.ServiceUsuario;
 import VingadoresDoYahoo.HoraMarcada.util.Util;
 import VingadoresDoYahoo.HoraMarcada.exceptions.ServiceExc;
 import VingadoresDoYahoo.HoraMarcada.models.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+*/
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+
 
 @Controller
 //@RequestMapping("/home")
@@ -30,24 +34,33 @@ public class UsuarioController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
+    /*
     @Autowired
     private ServiceUsuario usuarioService;
+    */
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public static ModelAndView index() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("index");
         return mv;
     }
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public static ModelAndView login(){
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
         return mv;
     }
 
+    @GetMapping("/perfil")
+    public static ModelAndView perfil(){
+    	ModelAndView mv = new ModelAndView();
+        mv.setViewName("lista");
+        return mv;
+    }
 
+/*
     @PostMapping("/logar")
     public ModelAndView login(@Validated Usuario usuario, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServiceExc {
         ModelAndView mv = new ModelAndView();
@@ -73,4 +86,6 @@ public class UsuarioController {
         mv.setViewName("/login");
         return mv;
     }
+*/
+
 }

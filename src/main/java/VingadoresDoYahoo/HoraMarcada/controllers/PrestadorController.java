@@ -7,6 +7,7 @@ import VingadoresDoYahoo.HoraMarcada.models.*;
 
 import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,13 @@ import org.springframework.validation.annotation.Validated;
 
 @Controller
 public class PrestadorController {
+
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public PrestadorController(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -40,7 +48,7 @@ public class PrestadorController {
     	return mv;
     }
 
-
+/*
     @PostMapping(path = "/cadastrarPrestador")
     public String salvarPrestador(@Validated CadastroPrestador cadastroPrestador, BindingResult result) throws Exception {
         try{
@@ -59,6 +67,7 @@ public class PrestadorController {
 
         }
         
+        ApplicationUser applicationUser = new ApplicationUser(cadastroPrestador.getEmail(), cadastroPrestador.getSenha())
         Usuario usuario = new Usuario(cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADORSERVICO);
         Prestador prestador = new Prestador(cadastroPrestador.getEndereco(),cadastroPrestador.getBairro(),cadastroPrestador.getCidade(),cadastroPrestador.getEstado(), usuario);
         System.out.println(prestador);
@@ -67,4 +76,5 @@ public class PrestadorController {
         return "redirect: /index";
     
     }
+*/
 } 

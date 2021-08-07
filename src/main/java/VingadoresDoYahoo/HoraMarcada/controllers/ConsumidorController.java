@@ -7,6 +7,7 @@ import VingadoresDoYahoo.HoraMarcada.models.*;
 
 import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,13 @@ import org.springframework.validation.annotation.Validated;
 @Controller
 
 public class ConsumidorController {
+
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public ConsumidorController(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -43,7 +51,7 @@ public class ConsumidorController {
     }
 
 
-
+/*
     @PostMapping(path = "/cadastroConsumidor")
     public String salvarConsumidor(@Validated CadastroConsumidor cadastroConsumidor, BindingResult result) throws Exception {
         try{
@@ -54,6 +62,7 @@ public class ConsumidorController {
                 throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());
             }
 
+//          cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
             cadastroConsumidor.setSenha(Util.md5(cadastroConsumidor.getSenha()));
 
         } catch (NoSuchAlgorithmException e){
@@ -71,4 +80,5 @@ public class ConsumidorController {
         return "/index";
     
     }
+*/
 }
