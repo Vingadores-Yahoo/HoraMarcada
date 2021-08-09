@@ -1,9 +1,20 @@
 package VingadoresDoYahoo.HoraMarcada.models;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "prestadorServico")
+@Table(name = "Prestador")
 public class Prestador {
 
     @Id
@@ -20,9 +31,20 @@ public class Prestador {
     @Enumerated(EnumType.STRING)
     private RoleType roletype;
 
+    @NotBlank
+    @Column(nullable = false)
     private String endereco;
+
+    @NotBlank
+    @Column(nullable = false)
     private String bairro;
+
+    @NotBlank
+    @Column(nullable = false)
     private String cidade;
+
+    @NotBlank
+    @Column(nullable = false)
     private String estado;
 
     public Prestador() {}

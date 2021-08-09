@@ -1,21 +1,23 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
-import VingadoresDoYahoo.HoraMarcada.repositories.*;
-import VingadoresDoYahoo.HoraMarcada.util.Util;
-import VingadoresDoYahoo.HoraMarcada.exceptions.*;
-import VingadoresDoYahoo.HoraMarcada.models.*;
-
-import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import VingadoresDoYahoo.HoraMarcada.exceptions.EmailExistsException;
+import VingadoresDoYahoo.HoraMarcada.models.Consumidor;
+import VingadoresDoYahoo.HoraMarcada.models.RoleType;
+import VingadoresDoYahoo.HoraMarcada.models.Usuario;
+import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
 
 @Controller
-
 public class ConsumidorController {
 
     private final PasswordEncoder passwordEncoder;
@@ -34,13 +36,6 @@ public class ConsumidorController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
-//    @GetMapping()
-//    public ModelAndView lista(){
-//        ModelAndView mv = new ModelAndView();
-//        mv.setViewName("/lista");
-//        return mv;
-//    }
-
 
     @GetMapping("/cadastroConsumidor")
     public ModelAndView novoConsumidor(){
@@ -50,28 +45,18 @@ public class ConsumidorController {
         return mv;
     }
 
-
-/*
     @PostMapping(path = "/cadastroConsumidor")
-    public String salvarConsumidor(@Validated CadastroConsumidor cadastroConsumidor, BindingResult result) throws Exception {
-        try{
-            if(result.hasErrors()){
-                return "consumidor/cadastroConsumidor";
-            }
-            if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
-                throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());
-            }
-
-//          cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
-            cadastroConsumidor.setSenha(Util.md5(cadastroConsumidor.getSenha()));
-
-        } catch (NoSuchAlgorithmException e){
-
-            throw new CriptoExitsException("Erro na criptografia da senha");
-
+    public String salvarConsumidor(@Validated CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
+        if(br.hasErrors()){
+            return "consumidor/cadastroConsumidor";
         }
+        if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
+            throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());
+        }
+
+        cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
         
-        Usuario usuario = new Usuario(cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);
+        Usuario usuario = new Usuario(null, cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);
         Consumidor consumidor = new Consumidor(cadastroConsumidor.getEndereco(), usuario);
 
         System.out.println(consumidor);
@@ -80,5 +65,4 @@ public class ConsumidorController {
         return "/index";
     
     }
-*/
 }

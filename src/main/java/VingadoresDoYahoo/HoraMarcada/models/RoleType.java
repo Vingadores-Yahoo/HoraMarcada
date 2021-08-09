@@ -13,7 +13,7 @@ import static VingadoresDoYahoo.HoraMarcada.security.ApplicationUserPermission.*
 public enum RoleType {
     CONSUMIDOR(Sets.newHashSet(ACESSAR)),
     ADMIN(Sets.newHashSet(ACESSAR)),
-    PRESTADORSERVICO(Sets.newHashSet(ACESSAR));
+    PRESTADOR(Sets.newHashSet(ACESSAR));
 
 
     private final Set<ApplicationUserPermission> permissions;
