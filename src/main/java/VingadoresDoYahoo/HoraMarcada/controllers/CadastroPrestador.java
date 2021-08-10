@@ -1,6 +1,6 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
-import VingadoresDoYahoo.HoraMarcada.models.LocalTrabalho;
+//import VingadoresDoYahoo.HoraMarcada.models.LocalTrabalho;
 
 public class CadastroPrestador {
     private String nome;
@@ -15,13 +15,13 @@ public class CadastroPrestador {
     private String cidade;
     private String estado;
     
-    private LocalTrabalho localtrabalho;
+//    private LocalTrabalho localtrabalho;
 
     public CadastroPrestador() {}
 
     
 	public CadastroPrestador(String nome, String email, String telefone, String senha, String confesenha,
-			Boolean termos, String endereco, String bairro, String cidade, String estado, LocalTrabalho localtrabalho) {
+			Boolean termos, String endereco, String bairro, String cidade, String estado) {
 		
 		this.nome = nome;
 		this.email = email;
@@ -33,7 +33,7 @@ public class CadastroPrestador {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
-		this.localtrabalho = localtrabalho;
+		//this.localtrabalho = localtrabalho;
 	}
 
 	public String getNome() {
@@ -107,7 +107,7 @@ public class CadastroPrestador {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-
+/*
 	public LocalTrabalho getLocaltrabalho() {
 		return localtrabalho;
 	}
@@ -115,7 +115,7 @@ public class CadastroPrestador {
 	public void setLocalTrabalho(LocalTrabalho localtrabalho) {
 		this.localtrabalho = localtrabalho;
 	}
-
+*/
 	public String getEstado() {
 		return this.estado;
 	}

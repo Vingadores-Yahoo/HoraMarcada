@@ -48,7 +48,7 @@ public class ConsumidorController {
     @PostMapping(path = "/cadastroConsumidor")
     public String salvarConsumidor(@Validated CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
         if(br.hasErrors()){
-            return "consumidor/cadastroConsumidor";
+            return "/cadastroConsumidor";
         }
         if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
             throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());

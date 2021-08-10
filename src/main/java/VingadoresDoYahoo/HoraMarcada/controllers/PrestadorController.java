@@ -43,7 +43,7 @@ public class PrestadorController {
     	return mv;
     }
 
-    @PostMapping(path = "/cadastrarPrestador")
+    @PostMapping(path = "/cadastroPrestador")
     public String salvarPrestador(@Validated CadastroPrestador cadastroPrestador, BindingResult br) throws Exception {
         if(br.hasErrors()){
             return "/cadastroPrestador";

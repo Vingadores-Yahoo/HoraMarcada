@@ -553,26 +553,36 @@ footer a {
 	   transform:scale(1.5);
 	}
 
-	   .logo{
-		max-width:300px;
-		max-height:100px;
-		width: auto;
-		height: auto;
-		margin-left: 40px;
-		margin-top: -5px;
-		position: relative;
-	   }
+    .logo{
+      max-width:250px;
+      max-height:100px;
+      width: 100%;
+      margin-left: 35px;
+      margin-top: 1px;
+      position: fixed;
+        }
+
+    @media screen and (max-width: 767px) {
+      .logo{
+        max-width:150px;
+        max-height:50px;
+        width: auto;
+        height: auto;
+        margin-left: 40px;
+        margin-top: -5px;
+        position: fixed;
+          }
+      }
 
  #icon-perfil {
-	    position: fixed;
+	  position: fixed;
 		border-radius: 50%;
 		max-width:50px;
 		max-height:50px;
 		width: auto;
 		height: auto;
-		float: right;
 		margin: 10px;
-		margin-right: -20px;
+    right: 10%;
 		margin-top: -30px;
  }
 
@@ -773,7 +783,7 @@ nav .menu-item.highlight:hover ~ #sub-menu-container #sub-menu-holder #sub-menu-
 
 #primary_nav_wrap
 {
-  margin-top: -250px;
+  margin-top: -60%;
   position: relative;
   z-index: 1;
 }

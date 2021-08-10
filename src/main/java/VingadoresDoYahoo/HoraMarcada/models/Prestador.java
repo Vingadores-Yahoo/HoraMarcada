@@ -28,9 +28,6 @@ public class Prestador {
     @Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roletype;
-
     @NotBlank
     @Column(nullable = false)
     private String endereco;
