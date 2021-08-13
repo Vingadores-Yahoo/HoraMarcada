@@ -53,10 +53,10 @@ public class UsuarioController {
         return mv;
     }
 
-    @GetMapping("/perfil")
-    public static ModelAndView perfil(){
+    @GetMapping("/perfilPrestador")
+    public static ModelAndView perfilPrestador(){
     	ModelAndView mv = new ModelAndView();
-        mv.setViewName("lista");
+        mv.setViewName("perfilPrestador");
         return mv;
     }
 
