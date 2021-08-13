@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login</title>
+        <title>Perfil Prestador de Serviço</title>
         <link rel="stylesheet" href="css/stylePerfil.css">
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="main-body">
                 <nav id="menu">
-                    <a th:href="@{/home}"><img src="fotos/logo.png" class="logo"></a>
+                    <a th:href="@{/home}"><img src="fotos/logo2.png" class="logo"></a>
                     <div class="menu-text">
                         <h3><a href="#" class="home-menu" th:text="#{home_button.text}"></a></h3>
                     </div>
@@ -53,7 +53,7 @@
                             </ul>
                             <div class="row">
                                 <div class="col-sm-12">
-                                <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
                                 </div>
                             </div>
                         </div>
@@ -92,10 +92,12 @@
                                     <div class="col-sm-3">
                                     <h6 class="mb-0">Possui Studio?</h6>
                                     </div>
-                                    <input type="radio" id="sim" name="fav_language" value="sim">
-                                    <label for="sim">Sim</label>
-                                    <input type="radio" id="nao" name="fav_language" value="nao">
-                                    <label for="nao">Não</label>
+                                    <form>
+                                        <input type="radio" id="sim" name="fav_language" value="sim">
+                                        <label for="sim">Sim</label>
+                                        <input type="radio" id="nao" name="fav_language" value="nao">
+                                        <label for="nao">Não</label>
+                                    </form>
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -109,9 +111,12 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                    <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                                        <button type="button" class="btn btn-outline-primary">Primary</button>
                                     </div>
                                 </div>
+
+
+                                
                             </div>
                         </div>
                     </div>

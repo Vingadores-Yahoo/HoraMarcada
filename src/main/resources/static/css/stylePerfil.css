@@ -1,5 +1,5 @@
 body{
-    background-color: #a7a7a7;
+    background-color: #d64a4a;
     margin-top:20px;
     color: #1a202c;
     text-align: left;
@@ -59,8 +59,8 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 70px;
-	background-color:#ffffff;
+	height: 80px;
+	background-color:#00757a;
 	z-index: 2;
   }
 
@@ -69,12 +69,15 @@ body{
     margin-top: 10%;
 }
 
-h3{
-    margin-top: 90px;
+.menu-text a{
+    margin-top: 20px;
+    color: #fff;
 }
 
 nav .menu-text a:hover {
-    color: rgb(204, 129, 17);
+    margin-top: 20px;
+    color: rgb(255, 161, 21);
+    text-decoration: none;
 }
 
     .logo{
@@ -82,7 +85,7 @@ nav .menu-text a:hover {
       max-height:150px;
       width: 100%;
       margin-left: 35px;
-      margin-top: 1px;
+      margin-top: 12px;
       position: fixed;
         }
 
@@ -118,3 +121,24 @@ nav .menu-text a:hover {
             text-decoration: none;
             text-align: center;
         }
+
+#sim{
+    margin-left: 20px;
+}
+#nao{
+    margin-left: 50px;
+}
+input {
+    margin: .4rem;
+}
+
+.btn-outline-primary, .btn-primary{
+    background-color: #fc7b19 !important;
+    color: #fff !important;
+    border-color: #fc7b19 !important;
+}
+
+/*teste*/
+.btn-outline-primary::after{
+    background-color: #964100 !important;
+}
