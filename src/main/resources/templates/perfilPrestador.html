@@ -25,12 +25,12 @@
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="https://i.pinimg.com/564x/b9/2e/bd/b92ebde3555e312b0144075fcb549f1e.jpg" alt="Admin" class="rounded-circle" width="150">
                                     <div class="mt-3">
-                                        <h4>Vingadores do Yahoo</h4><br>
+                                        <h4>Vingadores do Yahoo</h4><br>  <!-- Nome do Usuário-->
                                         <ul id="menuprofile">
-                                            <li><a href="#" id="menuperfil">Meu perfil</a></li><br>
-                                            <li><a href="#"id="menuperfil">Calendário</a></li><br>
-                                            <li><a href="#"id="menuperfil">Minhas avaliações</a></li><br>
-                                            <li><a href="#"id="menuperfil">Meus serviços</a>
+                                            <li><a href="#" id="menuperfil" th:text="#{perfil.text}"></a></li><br>
+                                            <li><a href="#"id="menuperfil" th:text="#{calendario.text}"></a></li><br>
+                                            <li><a href="#"id="menuperfil" th:text="#{avaliacao.text}"></a></li><br>
+                                            <li><a href="#"id="menuperfil" th:text="#{servico.text}"></a>
                                               <ul>
                                     </div>
                                 </div>
@@ -63,34 +63,34 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">Nome</h6>
+                                    <h6 class="mb-0" th:text="#{nome.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    Vingadores do Yahoo
+                                        <h6 th:text="${nome}"></h6> <!-- Nome do prestador -->
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">E-mail</h6>
+                                    <h6 class="mb-0" th:text="#{email.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    jjlmny@vingadoresdoyahoo.com.br
+                                    jjlmny@vingadoresdoyahoo.com.br <!-- E-mail do prestador -->
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">Telefone</h6>
+                                    <h6 class="mb-0" th:text="#{tel_cel.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    (11) 4002-8922
+                                    (11) 4002-8922 <!-- Telefone do prestador -->
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">Possui Studio?</h6>
+                                    <h6 class="mb-0" th:text="#{local_trabalho.text}"></h6>
                                     </div>
                                     <form>
                                         <input type="radio" id="sim" name="fav_language" value="sim">
@@ -102,16 +102,16 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">Endereço</h6>
+                                    <h6 class="mb-0" th:text="#{endereco.text}">Endereço</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    Rua aaaa aa aaaa, São Paulo - SP
+                                    Rua aaaa aa aaaa, São Paulo - SP <!-- Endereço do prestador -->
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <button type="button" class="btn btn-outline-primary">Primary</button>
+                                        <button type="button" class="btn btn-outline-primary" th:text="#{edicao.text}"></button>
                                     </div>
                                 </div>
 

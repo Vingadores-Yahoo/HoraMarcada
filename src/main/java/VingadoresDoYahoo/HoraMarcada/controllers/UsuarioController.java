@@ -19,6 +19,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.ModelMap;
 
 
 @Controller
@@ -54,12 +55,20 @@ public class UsuarioController {
     }
 
     @GetMapping("/perfilPrestador")
-    public static ModelAndView perfilPrestador(){
+    public static ModelAndView perfilPrestador(ModelMap model){
+        model.addAttribute("nome", "Livia");
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("perfilPrestador");
         return mv;
     }
 
+    @GetMapping("/perfilConsumidor")
+    public static ModelAndView perfilConsumidor(){
+    	ModelAndView mv = new ModelAndView();
+        mv.setViewName("perfilConsumidor");
+        return mv;
+    }
+}
 /*
     @PostMapping("/logar")
     public ModelAndView login(@Validated Usuario usuario, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServiceExc {
@@ -88,4 +97,3 @@ public class UsuarioController {
     }
 */
 
-}
