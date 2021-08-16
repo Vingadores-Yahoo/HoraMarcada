@@ -1,3 +1,4 @@
+/* 
 package VingadoresDoYahoo.HoraMarcada.config;
 
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
+
 
 @Configuration
 public class ApplicationConfig implements WebMvcConfigurer {
@@ -27,5 +29,6 @@ public class ApplicationConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
-    }
+    }    
 }
+*/
