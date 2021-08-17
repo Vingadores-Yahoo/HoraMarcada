@@ -2,8 +2,6 @@ package VingadoresDoYahoo.HoraMarcada.security;
 
 import static VingadoresDoYahoo.HoraMarcada.models.RoleType.ADMIN;
 
-import static VingadoresDoYahoo.HoraMarcada.models.RoleType.CONSUMIDOR;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -30,7 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
             .csrf().disable()
             .authorizeRequests()
-            .antMatchers("/", "/cadastroConsumidor", "/cadastroPrestador", "/css/**", "/fotos/**").permitAll()
+            .antMatchers("/", "/cadastroConsumidor", "/cadastroPrestador", "/perfilConsumidor", "/perfilPrestador", "/css/**", "/fotos/**").permitAll()
             .antMatchers("/lista").hasRole(ADMIN.name())
             .anyRequest()
             .authenticated()

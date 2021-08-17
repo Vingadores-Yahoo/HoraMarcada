@@ -14,16 +14,16 @@
         <div class="form-container sign-up-container"></div>
         <div class="form-container sign-in-container">
             <form action="/login" method="post">  
-                <h1>Entrar com:</h1>
+                <h1 th:text="#{entrar.text}"></h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>ou entre com seu e-mail</span>
+                <span th:text="#{entrar_email.text}"></span>
                 <input name="email" type="email" placeholder="E-mail" />
                 <input name="senha" type="password" placeholder="Senha" />
-                <a href="#">Esqueceu a senha?</a><br>
+                <a href="#" th:text="#{lembrete.text}"></a><br>
                 <button type="submit" class="confirmar" th:text="#{button_confirm.text}"></button>
             </form>
         </div>
@@ -31,9 +31,9 @@
             <div class="overlay">
                 
                 <div class="overlay-panel overlay-right">
-                    <h1>Olá, é ótimo ter você aqui!</h1>
-                    <p>Cadastre seus dados pessoais e comece sua jornada conosco!</p>
-                    <button class="ghost" id="signUp"><a th:href="@{/cadastroConsumidor}">Cadastrar-se</a></button>
+                    <h1 th:text="#{ola.text}"></h1>
+                    <p th:text="#{cadastro.text}"></p>
+                    <button class="ghost" id="signUp"><a th:href="@{/cadastroConsumidor}" th:text="#{cadastrar.text}"></a></button>
                 </div>
             </div>
         </div>

@@ -58,16 +58,16 @@ public class UsuarioController {
     @GetMapping("/perfilPrestador")
     public static ModelAndView perfilPrestador(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         System.out.println(usuario);
-        model.addAttribute("nome", usuario.getNome());
-        model.addAttribute("email", usuario.getEmail());
-        model.addAttribute("telefone", usuario.getTelefone());
+        model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("perfilPrestador");
         return mv;
     }
 
     @GetMapping("/perfilConsumidor")
-    public static ModelAndView perfilConsumidor(){
+    public static ModelAndView perfilConsumidor(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+        System.out.println(usuario);
+        model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("perfilConsumidor");
         return mv;

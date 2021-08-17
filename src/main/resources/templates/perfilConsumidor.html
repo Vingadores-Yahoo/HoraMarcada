@@ -15,7 +15,7 @@
                 <nav id="menu">
                     <a th:href="@{/home}"><img src="fotos/logo2.png" class="logo"></a>
                     <div class="menu-text">
-                        <h3><a href="#" class="home-menu" th:text="#{home_button.text}"></a></h3>
+                        <h3><a href="#" class="home-menu" th:href="@{/}" th:text="#{home_button.text}"></a></h3>
                     </div>
                 </nav>
                 <table border="0" width="100%" cellpadding="10">
@@ -52,7 +52,7 @@
                                     <h6 class="mb-0" th:text="#{nome.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    Vingadores do Yahoo
+                                       <a th:text="${usuario.Nome}"></a> 
                                     </div>
                                 </div>
                                 <hr>
@@ -61,7 +61,7 @@
                                     <h6 class="mb-0" th:text="#{email.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    jjlmny@vingadoresdoyahoo.com.br
+                                        <a th:text="${usuario.Email}"></a> 
                                     </div>
                                 </div>
                                 <hr>
@@ -70,7 +70,7 @@
                                     <h6 class="mb-0" th:text="#{tel_cel.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                    (11) 4002-8922
+                                        <a th:text="${usuario.Telefone}"></a> 
                                     </div>
                                 </div>
                                
