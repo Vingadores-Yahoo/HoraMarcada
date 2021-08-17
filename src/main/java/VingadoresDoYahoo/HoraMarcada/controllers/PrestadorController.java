@@ -59,7 +59,7 @@ public class PrestadorController {
         System.out.println(prestador);
 
         prestadorRepository.save(prestador);
-        return "redirect: /index";
+        return "/index";
     
     }
 

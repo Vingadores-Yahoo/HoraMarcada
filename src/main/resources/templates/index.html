@@ -23,12 +23,12 @@
       </div>
       <div class="menu-item">
         <div class="menu-text">
-          <a><img src="https://s-media-cache-ak0.pinimg.com/originals/28/c7/ad/28c7adffc9af705dcd8a8b77b1a9c0e8.jpg" alt="Foto de Perfil" id="icon-perfil" /></a>
+          <a th:href="@{/login}"><img src="https://s-media-cache-ak0.pinimg.com/originals/28/c7/ad/28c7adffc9af705dcd8a8b77b1a9c0e8.jpg" alt="Foto de Perfil" id="icon-perfil" /></a>
         </div>
         <div class="sub-menu">
           <div class="icon-box">
               <div class="text">
-                  <div class="sub-text"><a th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
+                  <div class="sub-text"><a th:href="@{/perfilConsumidor}"   th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
               </div>
           </div>
           <div class="icon-box">

@@ -2,7 +2,7 @@ package VingadoresDoYahoo.HoraMarcada.controllers;
 
 import org.springframework.stereotype.Controller;
 
-
+import VingadoresDoYahoo.HoraMarcada.models.Usuario;
 import VingadoresDoYahoo.HoraMarcada.repositories.*;
 
 /*
@@ -18,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.ModelMap;
 
@@ -55,8 +56,11 @@ public class UsuarioController {
     }
 
     @GetMapping("/perfilPrestador")
-    public static ModelAndView perfilPrestador(ModelMap model){
-        model.addAttribute("nome", "Livia");
+    public static ModelAndView perfilPrestador(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+        System.out.println(usuario);
+        model.addAttribute("nome", usuario.getNome());
+        model.addAttribute("email", usuario.getEmail());
+        model.addAttribute("telefone", usuario.getTelefone());
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("perfilPrestador");
         return mv;
