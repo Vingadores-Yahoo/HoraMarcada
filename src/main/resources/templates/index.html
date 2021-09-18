@@ -28,7 +28,7 @@
         <div class="sub-menu">
           <div class="icon-box">
               <div class="text">
-                  <div class="sub-text"><a th:href="@{/perfilConsumidor}" th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
+                  <div class="sub-text"><a th:href="@{/meuPerfil}"  th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
               </div>
           </div>
           <div class="icon-box">
@@ -55,10 +55,10 @@
       <nav id="primary_nav_wrap">
         <ul>
           <li class="current-menu-item"><a href="#" th:text="#{servico1.text}"></a></li>
-          <li><a href="#" th:text="#{servico2.text}"></a>
-          <li><a href="#" th:text="#{servico3.text}"></a>
-          <li><a href="#" th:text="#{servico4.text}"></a>
-          <li><a href="#" th:text="#{servico5.text}"></a></li>
+          <li><a th:href="@{/informacoes}" th:text="#{servico2.text}"></a>
+          <li><a th:href="@{/informacoes}" th:text="#{servico3.text}"></a>
+          <li><a th:href="@{/informacoes}" th:text="#{servico4.text}"></a>
+          <li><a th:href="@{/informacoes}" th:text="#{servico5.text}"></a></li>
         </ul>
       </nav> 
     </div> 

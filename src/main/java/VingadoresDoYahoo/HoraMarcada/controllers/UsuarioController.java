@@ -24,7 +24,6 @@ import org.springframework.ui.ModelMap;
 
 
 @Controller
-//@RequestMapping("/home")
 public class UsuarioController {
     
     @Autowired
@@ -54,7 +53,7 @@ public class UsuarioController {
         mv.setViewName("login");
         return mv;
     }
-
+/*
     @GetMapping("/perfilPrestador")
     public static ModelAndView perfilPrestador(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         System.out.println(usuario);
@@ -70,6 +69,19 @@ public class UsuarioController {
         model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("perfilConsumidor");
+        return mv;
+    }
+*/
+    @GetMapping("/meuPerfil")
+    public ModelAndView perfilCorreto(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+        ModelAndView mv = new ModelAndView();
+        if(usuario.getRole().name() == "CONSUMIDOR"){
+            model.addAttribute("usuario", usuario);
+            mv.setViewName("perfilConsumidor");
+        }else{
+            model.addAttribute("usuario", usuario);
+            mv.setViewName("perfilPrestador");
+        }
         return mv;
     }
 }

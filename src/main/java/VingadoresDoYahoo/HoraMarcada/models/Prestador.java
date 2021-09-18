@@ -36,24 +36,14 @@ public class Prestador {
     @Column(nullable = false)
     private String bairro;
 
-    @NotBlank
-    @Column(nullable = false)
-    private String cidade;
-
-    @NotBlank
-    @Column(nullable = false)
-    private String estado;
-
     public Prestador() {}
 
 
-    public Prestador(String endereco, String bairro, String cidade, String estado,Usuario usuario) {
+    public Prestador(String endereco, String bairro,Usuario usuario) {
 
         this.usuario = usuario;
         this.endereco = endereco;
         this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
         this.usuario = usuario;
     }
 
@@ -89,21 +79,13 @@ public class Prestador {
         this.bairro = bairro;
     }
 
-    public String getCidade() {
-        return this.cidade;
+
+    @Override
+    public String toString() {
+        return "Prestador [bairro=" + bairro + ", endereco=" + endereco + ", id=" + id + ", localtrabalho="
+                + localtrabalho + ", usuario=" + usuario + "]";
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return this.estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
+    
 
 }

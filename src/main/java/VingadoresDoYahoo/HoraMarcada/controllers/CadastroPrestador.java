@@ -9,11 +9,8 @@ public class CadastroPrestador {
     private String senha;
     private String confesenha;
     private Boolean termos;
-
     private String endereco;
     private String bairro;
-    private String cidade;
-    private String estado;
     
 //    private LocalTrabalho localtrabalho;
 
@@ -21,7 +18,7 @@ public class CadastroPrestador {
 
     
 	public CadastroPrestador(String nome, String email, String telefone, String senha, String confesenha,
-			Boolean termos, String endereco, String bairro, String cidade, String estado) {
+			Boolean termos, String endereco, String bairro) {
 		
 		this.nome = nome;
 		this.email = email;
@@ -31,8 +28,6 @@ public class CadastroPrestador {
 		this.termos = termos;
 		this.endereco = endereco;
 		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
 		//this.localtrabalho = localtrabalho;
 	}
 
@@ -100,13 +95,6 @@ public class CadastroPrestador {
 		this.bairro = bairro;
 	}
 
-	public String getCidade() {
-		return this.cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
 /*
 	public LocalTrabalho getLocaltrabalho() {
 		return localtrabalho;
@@ -116,12 +104,4 @@ public class CadastroPrestador {
 		this.localtrabalho = localtrabalho;
 	}
 */
-	public String getEstado() {
-		return this.estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
 }
