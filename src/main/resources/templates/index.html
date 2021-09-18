@@ -2,89 +2,14 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Página Inicial</title>
-<<<<<<< HEAD
-    <script src="https://kit.fontawesome.com/628c8d2499.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" >
-    <link rel="stylesheet" href="css/style2.css" media="screen" >
-  </head>
-  <body class="index">
-    <nav id="menu">
-      <a th:href="@{/home}"><img src="fotos/logo.png" class="logo"></a>
-      <div class="pesquisa">
-        <div class="container-1">
-          <img src="fotos/lupa.png" class="icon" width="15px" height="15px">
-          <input type="search" id="search" placeholder="Pesquisar..." />
-        </div> 
-      </div>
-      <div class="menu-text">
-        <a href="#" class="home-menu" th:text="#{home_button.text}"></a>
-      </div>
-      <div class="menu-item">
-        <div class="menu-text">
-          <a th:href="@{/login}"><img src="https://s-media-cache-ak0.pinimg.com/originals/28/c7/ad/28c7adffc9af705dcd8a8b77b1a9c0e8.jpg" alt="Foto de Perfil" id="icon-perfil" /></a>
-        </div>
-        <div class="sub-menu">
-          <div class="icon-box">
-              <div class="text">
-                  <div class="sub-text"><a th:href="@{/meuPerfil}"  th:text="#{icon_item1.text}"></a><i class="far fa-arrow-right"></i></div> <br>
-              </div>
-          </div>
-          <div class="icon-box">
-              <div class="text">
-                  <div class="sub-text"><a th:text="#{icon_item2.text}"></a><i class="far fa-arrow-right"></i></div>
-              </div>
-          </div>
-          <div class="icon-box">
-            <div class="text">
-              <form action="/logout" method="get">
-                <div class="sub-text"><button type="submit" th:text="#{icon_item3.text}"></button><i class="far fa-arrow-right"></i></div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="sub-menu-container">
-        <div id="sub-menu-holder">
-            <div id="sub-menu-bottom"></div>
-        </div>
-      </div>
-    </nav>
-    <div>
-      <nav id="primary_nav_wrap">
-        <ul>
-          <li class="current-menu-item"><a href="#" th:text="#{servico1.text}"></a></li>
-          <li><a th:href="@{/informacoes}" th:text="#{servico2.text}"></a>
-          <li><a th:href="@{/informacoes}" th:text="#{servico3.text}"></a>
-          <li><a th:href="@{/informacoes}" th:text="#{servico4.text}"></a>
-          <li><a th:href="@{/informacoes}" th:text="#{servico5.text}"></a></li>
-        </ul>
-      </nav> 
-    </div> 
-    <div class="content"> 
-      <div class="card_medium">
-        <div class="mediaCard1"></div> 
-        <div class="topcard">
-          <h3 class="title">Glória, ZN</h3>
-        </div>
-      </div> 
-
-      <div class="card_large">
-        <div class="mediaCard2"></div> 
-        <div class="topcard">
-          <h3 class="title">Júlio, ZN</h3>
-        </div>
-      </div> 
-=======
-    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/theme.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Página Inicial</title>
+	<script > (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+	<link rel="stylesheet" href="assets/css/app.css">
+	<link rel="stylesheet" href="assets/css/theme.css">
 </head>
->>>>>>> 945838e9eeeacd2e52a1caec5d9f772c6cee1e8f
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
@@ -118,7 +43,7 @@
 		</div>
     </nav>  
 
-    <main role="main">
+    <main>
 		<section class="mt-4 mb-5">
 			<div class="container mb-4">
 				<h1 class="font-weight-bold title">Conheça os trabalhos :)</h1>
