@@ -39,12 +39,11 @@ public class Prestador {
     public Prestador() {}
 
 
-    public Prestador(String endereco, String bairro,Usuario usuario) {
+    public Prestador(String endereco, String bairro, Usuario usuario) {
 
         this.usuario = usuario;
         this.endereco = endereco;
         this.bairro = bairro;
-        this.usuario = usuario;
     }
 
     public Usuario getUsuario() {

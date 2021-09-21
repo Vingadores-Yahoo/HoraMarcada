@@ -53,21 +53,21 @@ public class PrestadorController {
     @GetMapping("/avaliacoes")
     public ModelAndView avaliacoes(){
     	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("/avaliacoes");
+    	mv.setViewName("avaliacoes");
     	return mv;
     }
 
     @GetMapping("/portfolio")
     public ModelAndView portfolio(){
     	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("/portfolioPrestador");
+    	mv.setViewName("portfolioPrestador");
     	return mv;
     }
 
     @GetMapping("/informacoes")
     public ModelAndView informacoes(){
     	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("/infoPrestador");
+    	mv.setViewName("infoPrestador");
     	return mv;
     }
 

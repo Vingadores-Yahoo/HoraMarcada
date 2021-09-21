@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Informações</title>
     <script> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/theme.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <a class="navbar-brand font-weight-bolder mr-3" href="index.html"><img src="assets/img/logo.png" alt = "logo"></a>
+        <a class="navbar-brand font-weight-bolder mr-3" th:href="@{/}"><img src="/fotos/logo.png" alt = "logo"></a>
         <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,7 +44,7 @@
     </nav>  
 
     <main>
-        <div class="jumbotron border-round-0 min-50vh" style="background-image:url(assets/img/perfil-background.png);"></div>
+        <div class="jumbotron border-round-0 min-50vh" style="background-image:url(/fotos/perfil-background.png);"></div>
         <div class="container mb-4">
             <img src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" class="mt-neg100 mb-4 rounded-circle" width="120" alt="foto perfil">
             <h1 class="font-weight-bold title">Maria Eduarda</h1>
@@ -57,7 +57,7 @@
                         <a class="btn btn-light dropdown-toggle" href="#"  data-toggle="dropdown">Mais</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" th:href="@{/portfolio}">Portfólio</a>
-                            <a class="dropdown-item" th:href="@{avaliacoes]">Avaliações</a>
+                            <a class="dropdown-item" th:href="@{avaliacoes}">Avaliações</a>
                             <a class="dropdown-item" th:href="@{/agendamentos}">Calendário</a>
                         </div>
                     </li>

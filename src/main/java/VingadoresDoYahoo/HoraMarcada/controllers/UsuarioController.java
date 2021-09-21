@@ -2,6 +2,7 @@ package VingadoresDoYahoo.HoraMarcada.controllers;
 
 import org.springframework.stereotype.Controller;
 
+import VingadoresDoYahoo.HoraMarcada.models.Prestador;
 import VingadoresDoYahoo.HoraMarcada.models.Usuario;
 import VingadoresDoYahoo.HoraMarcada.repositories.*;
 
@@ -17,6 +18,9 @@ import org.springframework.validation.annotation.Validated;
 */
 
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -79,6 +83,8 @@ public class UsuarioController {
             model.addAttribute("usuario", usuario);
             mv.setViewName("perfilConsumidor");
         }else{
+            Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
+            model.addAttribute("prestador", prestadorOptional.get());
             model.addAttribute("usuario", usuario);
             mv.setViewName("perfilPrestador");
         }
