@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Agendamentos</title>
+	<title >Agendamentos</title>
 	<script> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
 	<link rel="stylesheet" href="/css/app.css">
 	<link rel="stylesheet" href="/css/theme.css">
@@ -28,17 +28,15 @@
 			</ul>
 			<ul class="navbar-nav ml-auto align-items-center">
 				<li class="nav-item">
-				    <a class="nav-link" th:href="@{/}">Página inicial</a>
-				</li>
-				<li class="nav-item">
-				    <a class="nav-link" href="prestador.html"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto perfil"><span class="align-middle">Perfil</span></a>
+				    <a class="nav-link" th:href="@{/}" th:text="#{home_button.text}"></a>
 				</li>
 				<li class="nav-item dropdown">
 				    <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				        <svg style="margin-top:10px;" class="_3DJPT" version="1.1" viewbox="0 0 32 32" width="21" height="21" aria-hidden="false" data-reactid="71"><path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" data-reactid="22"></path></svg>
 				    </a>
 				    <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
-					    <a class="nav-link" th:href="@{/meuPerfil}">Configurações</a>
+					    <a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
+                        <a class="nav-link" th:href="@{/login}" th:text="#{icon_item3.text}"></a>
 				    </div>
 				</li>
 			</ul>
@@ -55,9 +53,9 @@
                                 <div class="mt-3">
                                     <h4>Maria Eduarda</h4><br>
                                     <ul id="menuprofile">
-                                        <li><a th:href="@{meuPerfil}" class="link-secondary">Meu perfil</a></li>
-                                        <li><a th:href="@{/agendamentos}" class="link-secondary"><b>Agendamentos</b></a></li>
-                                        <li><a th:href="@{/avaliacoes}" class="link-secondary active">Minhas avaliações</a></li>
+                                        <li><a th:href="@{meuPerfil}" class="link-secondary" th:text="#{perfil.text}"></a></li>
+                                        <li><a th:href="@{/agendamentos}" class="link-secondary"><b th:text="#{agendamentos.text}"></b></a></li>
+                                        <li><a th:href="@{/avaliacoes}" class="link-secondary active" th:text="#{avaliacao.text}"></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +63,7 @@
                     </div>  
                 </div>
                 <div > 
-                    <button type="button" class="btn btn-outline-secondary" id="agendamento">+ Adicionar</button>
+                    <button type="button" class="btn btn-outline-secondary" id="agendamento" th:text="#{add.text}"></button>
                 </div>
                 <div class="col-md-8">
                     <div class="card-ag mb-3">
@@ -73,29 +71,29 @@
                             <form>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0"><label for="name">Cliente</label></h6>
+                                       <h6 class="mb-0"><label for="name" th:text="#{cliente.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="name"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="horario">Data/Hora</label></h6>
+                                        <h6 class="mb-0"><label for="horario" th:text="#{horario.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="horario"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="servico">Serviço solicitado</label></h6>
+                                        <h6 class="mb-0"><label for="servico" th:text="#{servicos.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="servico"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">  <label for="endereco">Endereço</label></h6>
+                                        <h6 class="mb-0">  <label for="endereco" th:text="#{endereco.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="endereco"><span class="highlight"></span>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary btn-sm" id="editar">Editar</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></button>
                                 <i class="fas fa-trash-alt"></i>
                             </form>
                         </div>
@@ -105,29 +103,29 @@
                             <form>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="name2">Cliente</label></h6>
+                                        <h6 class="mb-0"><label for="name2" th:text="#{cliente.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="name2"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="horario2">Data/Hora</label></h6>
+                                        <h6 class="mb-0"><label for="horario2" th:text="#{horario.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="horario2"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="servico2">Serviço solicitado</label></h6>
+                                        <h6 class="mb-0"><label for="servico2" th:text="#{servicos.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="servico2"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="endereco2">Endereço</label></h6>
+                                        <h6 class="mb-0"><label for="endereco2" th:text="#{endereco.text}"></label></h6>
                                     </div>
                                     <input type="text" required class="agenda" id="endereco2"><span class="highlight"></span>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary btn-sm" id="editar2">Editar</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm" id="editar2" th:text="#{edicao.text}"></button>
                                 <i class="fas fa-trash-alt"></i>
                             </form>
                         </div>
@@ -136,5 +134,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 </html> 

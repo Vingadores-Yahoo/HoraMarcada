@@ -30,16 +30,14 @@
 				<li class="nav-item">
 					<a class="nav-link" th:href="@{/}">Página inicial</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/meuPerfil}"><img class="rounded-circle mr-2" src="/fotos/av.png" width="30" alt="foto perfil"><span class="align-middle">Perfil</span></a>
-				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				        <svg style="margin-top:10px;" class="_3DJPT" version="1.1" viewbox="0 0 32 32" width="21" height="21" aria-hidden="false" data-reactid="71"><path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" data-reactid="22"></path></svg>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
-						<a class="nav-link" th:href="@{/meuPerfil}">Configurações</a>
-					</div>
+						<a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
+					    <a class="nav-link" th:href="@{/login}" th:text="#{icon_item3.text}"></a>
+                    </div>
 				</li>
 			</ul>
 		</div>
@@ -55,9 +53,9 @@
                                 <div class="mt-3">
                                     <h4><a th:text="${usuario.Nome}"></a></h4><br>
                                     <ul id="menuprofile">
-                                        <li><a th:href="@{/meuPerfil}" class="link-secondary"><b>Meu perfil</b></a></li>
-                                        <li><a th:href="@{/agendamentos}" class="link-secondary">Agendamentos</a></li>
-                                        <li><a th:href="@{/minhas_avaliacoes}" class="link-secondary">Minhas avaliações</a></li>
+                                        <li><a th:href="@{/meuPerfil}" class="link-secondary"><b th:text="#{perfil.text}"></b></a></li>
+                                        <li><a th:href="@{/agendamentos}" class="link-secondary" th:text="#{agendamentos.text}"></a></li>
+                                        <li><a th:href="@{/avaliacoes}" class="link-secondary active" th:text="#{avaliacao.text}"></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -69,7 +67,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Nome</h6>
+                                        <h6 class="mb-0" th:text="#{nome.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <a th:text="${usuario.Nome}"></a>
@@ -78,7 +76,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">E-mail</h6>
+                                        <h6 class="mb-0" th:text="#{email.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <a th:text="${usuario.Email}"></a>
@@ -87,7 +85,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Telefone</h6>
+                                        <h6 class="mb-0" th:text="#{tel_cel.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <a th:text="${usuario.Telefone}"></a> 
@@ -96,7 +94,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-12">
-										<button type="button" class="btn btn-outline-primary btn-sm" id="editar">Editar</button>
+										<button type="button" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></button>
                                     </div>
                                 </div>
                             </div>
@@ -106,5 +104,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 </html> 
