@@ -20,7 +20,7 @@
         <div class="container2" id="container">
             <div class="form-container sign-up-container"></div>
             <div class="form-container sign-in-container">
-                <form action="/salvarPrestador" method="post" th:object = "${/cadastroPrestador}">
+                <form action="/salvarPrestador" method="post" th:object="${cadastroPrestador}">
                 <h1 th:text="#{cadastroP.text}"></h1> <br><br>
                     <input name ="nome" type="text" th:placeholder="#{nome.text}" >
                     <input name ="email" type="email" th:placeholder="#{email.text}" />
