@@ -4,18 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import VingadoresDoYahoo.HoraMarcada.exceptions.EmailExistsException;
-import VingadoresDoYahoo.HoraMarcada.models.Consumidor;
-import VingadoresDoYahoo.HoraMarcada.models.RoleType;
-import VingadoresDoYahoo.HoraMarcada.models.Usuario;
-import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
-import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
-import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
+import VingadoresDoYahoo.HoraMarcada.models.*;
+import VingadoresDoYahoo.HoraMarcada.repositories.*;
 
 @Controller
 public class ConsumidorController {
@@ -44,13 +39,15 @@ public class ConsumidorController {
         return mv;
     }
 
-    @PostMapping(path = "/cadastroConsumidor")
-    public String salvarConsumidor(@Validated CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
+    @PostMapping("/cadastroConsumidor")
+    public ModelAndView salvarConsumidor(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
+        ModelAndView mv = new ModelAndView("/cadastroConsumidor");
         if(br.hasErrors()){
-            return "/cadastroConsumidor";
+            return mv;
         }
         if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
-            throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());
+            mv.addObject("mensagem","E-mail já cadastrado");
+            return mv;
         }
 
         cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
@@ -61,7 +58,8 @@ public class ConsumidorController {
         System.out.println(consumidor);
 
         consumidorRepository.save(consumidor);
-        return "/index";
+        ModelAndView mb = new ModelAndView("/login");
+        return mb;
     
     }
 }
