@@ -36,7 +36,7 @@ public class PrestadorController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
-    @GetMapping("/cadastroPrestador")
+    @GetMapping(path = "/cadastroPrestador")
     public ModelAndView novoPrestador(){
     	ModelAndView mv = new ModelAndView();
     	mv.setViewName("cadastroPrestador");
