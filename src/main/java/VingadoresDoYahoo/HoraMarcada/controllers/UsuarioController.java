@@ -67,15 +67,16 @@ public class UsuarioController {
         return mv;
     }
 
-    @GetMapping("/perfilConsumidor")
-    public static ModelAndView perfilConsumidor(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+    @GetMapping("/avaliacoes")
+    public static ModelAndView avaliacoes(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         System.out.println(usuario);
         model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
-        mv.setViewName("perfilConsumidor");
+        mv.setViewName("avaliacoes");
         return mv;
     }
-*/
+    */
+
     @GetMapping("/meuPerfil")
     public ModelAndView perfilCorreto(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         ModelAndView mv = new ModelAndView();

@@ -37,11 +37,10 @@ public class ConsumidorController {
     PrestadorRepository prestadorRepository;
 
 
-    @GetMapping("/cadastroConsumidor")
+    @GetMapping(path = "/cadastroConsumidor")
     public ModelAndView novoConsumidor(){
-    	
     	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("/cadastroConsumidor");
+    	mv.setViewName("cadastroConsumidor");
         return mv;
     }
 

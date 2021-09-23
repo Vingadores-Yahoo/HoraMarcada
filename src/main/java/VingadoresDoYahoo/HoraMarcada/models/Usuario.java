@@ -44,6 +44,7 @@ public class Usuario implements UserDetails {
 
     @NotBlank
     @Column(nullable = false)
+
     private String senha;
     
     private String telefone;
