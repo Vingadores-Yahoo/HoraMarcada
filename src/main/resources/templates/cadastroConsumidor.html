@@ -21,7 +21,7 @@
         <div class="container" id="container">
             <div class="form-container sign-up-container"></div>
             <div class="form-container sign-in-container">
-                <form action="/cadastroConsumidor" method="post" th:object="${cadastroConsumidor}">
+                <form action="/salvarConsumidor" method="post" th:object="${cadastroConsumidor}">
                 <h1 th:text="#{cadastroC.text}"></h1>
                     <input name="nome" type="text" th:placeholder="#{nome.text}" >
                     <input name="email" type="email" th:placeholder="#{email.text}" />

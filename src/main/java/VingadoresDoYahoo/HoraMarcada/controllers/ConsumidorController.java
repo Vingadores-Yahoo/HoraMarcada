@@ -39,7 +39,7 @@ public class ConsumidorController {
         return mv;
     }
 
-    @PostMapping("/cadastroConsumidor")
+    @PostMapping("/salvarConsumidor")
     public ModelAndView salvarConsumidor(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
         ModelAndView mv = new ModelAndView("/cadastroConsumidor");
         if(br.hasErrors()){
