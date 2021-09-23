@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import VingadoresDoYahoo.HoraMarcada.models.*;
 import VingadoresDoYahoo.HoraMarcada.repositories.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.ui.ModelMap;
 
 @Controller
 public class PrestadorController {
@@ -44,19 +43,19 @@ public class PrestadorController {
     }
 
     @GetMapping("/agendamentos")
-    public ModelAndView agendamentos(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+    public ModelAndView agendamentos(@AuthenticationPrincipal Usuario usuario){
         System.out.println(usuario);
-        model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
+        mv.addObject("usuario", usuario);
     	mv.setViewName("agendamentosPrestador");
     	return mv;
     }
 
     @GetMapping("/avaliacoes")
-    public static ModelAndView avaliacoes(ModelMap model, @AuthenticationPrincipal Usuario usuario){
+    public static ModelAndView avaliacoes(@AuthenticationPrincipal Usuario usuario){
         System.out.println(usuario);
-        model.addAttribute("usuario", usuario);
     	ModelAndView mv = new ModelAndView();
+        mv.addObject("usuario", usuario);
         mv.setViewName("avaliacoes");
         return mv;
     }
