@@ -169,7 +169,10 @@ footer.footer {
   margin-top: -45%;
   margin-left: 53%;
   width: 90%;
+}
 
+#navzinha{
+  position: absolute;
 }
 
 .card-body {
@@ -338,4 +341,8 @@ input:focus {
 
 #files{
   border-style: none;
+}
+
+.col-md-8 h4{
+  margin-top: -6%;
 }
