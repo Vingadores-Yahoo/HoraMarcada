@@ -2,19 +2,18 @@
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import javax.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import VingadoresDoYahoo.HoraMarcada.exceptions.EmailExistsException;
 import VingadoresDoYahoo.HoraMarcada.models.*;
 import VingadoresDoYahoo.HoraMarcada.repositories.*;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @Controller
 public class PrestadorController {
@@ -35,29 +34,11 @@ public class PrestadorController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
-    @GetMapping(path = "/cadastroPrestador")
+    @GetMapping("/cadastroPrestador")
     public ModelAndView novoPrestador(){
     	ModelAndView mv = new ModelAndView();
     	mv.setViewName("cadastroPrestador");
     	return mv;
-    }
-
-    @GetMapping("/agendamentos")
-    public ModelAndView agendamentos(@AuthenticationPrincipal Usuario usuario){
-        System.out.println(usuario);
-    	ModelAndView mv = new ModelAndView();
-        mv.addObject("usuario", usuario);
-    	mv.setViewName("agendamentosPrestador");
-    	return mv;
-    }
-
-    @GetMapping("/avaliacoes")
-    public static ModelAndView avaliacoes(@AuthenticationPrincipal Usuario usuario){
-        System.out.println(usuario);
-    	ModelAndView mv = new ModelAndView();
-        mv.addObject("usuario", usuario);
-        mv.setViewName("avaliacoes");
-        return mv;
     }
 
     @GetMapping("/portfolio")
@@ -90,8 +71,7 @@ public class PrestadorController {
             return mv;
         }
         if(usuarioRepository.findByEmail(cadastroPrestador.getEmail()) != null){
-            mv.addObject("mensagem","E-mail já cadastrado");
-            return mv;
+            throw new EmailExistsException("Email já cadastrado: " + cadastroPrestador.getEmail());
         }
 
         cadastroPrestador.setSenha(passwordEncoder.encode(cadastroPrestador.getSenha()));
@@ -103,7 +83,6 @@ public class PrestadorController {
         prestadorRepository.save(prestador);
         ModelAndView mb = new ModelAndView("/login");
         return mb;
-    
     }
 
 }

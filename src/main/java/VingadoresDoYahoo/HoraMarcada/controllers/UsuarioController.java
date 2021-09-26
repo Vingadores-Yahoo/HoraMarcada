@@ -1,30 +1,25 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
-import org.springframework.stereotype.Controller;
-
-import VingadoresDoYahoo.HoraMarcada.models.Prestador;
-import VingadoresDoYahoo.HoraMarcada.models.Usuario;
-import VingadoresDoYahoo.HoraMarcada.repositories.*;
-
-/*
-import java.security.NoSuchAlgorithmException;
-import javax.servlet.http.HttpSession;
-import VingadoresDoYahoo.HoraMarcada.services.ServiceUsuario;
-import VingadoresDoYahoo.HoraMarcada.util.Util;
-import VingadoresDoYahoo.HoraMarcada.exceptions.ServiceExc;
-import VingadoresDoYahoo.HoraMarcada.models.*;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-*/
-
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import VingadoresDoYahoo.HoraMarcada.models.Agendamento;
+import VingadoresDoYahoo.HoraMarcada.models.Prestador;
+import VingadoresDoYahoo.HoraMarcada.models.Usuario;
+import VingadoresDoYahoo.HoraMarcada.repositories.AgendamentoRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
 
 
 @Controller
@@ -38,6 +33,9 @@ public class UsuarioController {
 
     @Autowired
     PrestadorRepository prestadorRepository;
+
+    @Autowired
+    AgendamentoRepository agendamentoRepository;
 
     /*
     @Autowired
@@ -77,6 +75,20 @@ public class UsuarioController {
     }
     */
 
+    @GetMapping("/avaliacoes")
+    public ModelAndView avaliacoes(){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("avaliacoes");
+    	return mv;
+    }
+
+    @GetMapping("/agendamentos")
+    public ModelAndView agendamentos(){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("agendamentos");
+    	return mv;
+    }
+
     @GetMapping("/meuPerfil")
     public ModelAndView perfilCorreto(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         ModelAndView mv = new ModelAndView();
@@ -90,6 +102,28 @@ public class UsuarioController {
             mv.setViewName("perfilPrestador");
         }
         return mv;
+    }
+
+    @GetMapping("/novoAgendamento")
+    public ModelAndView novoAgendamentos(){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("formAgendamentos");
+    	return mv;
+    }
+
+    @PostMapping("/salvarAgendamento")
+    public ModelAndView salvarAgendamento(@Valid CadastroAgendamento cadastroAgendamento, BindingResult br) throws Exception {
+        ModelAndView mv = new ModelAndView("/novoAgendamento");
+        if(br.hasErrors()){
+            return mv;
+        }
+        
+        Agendamento agendamento = new Agendamento(null,cadastroAgendamento.getCliente(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), null);
+        System.out.println(agendamento);
+        agendamentoRepository.save(agendamento);
+
+        ModelAndView mb = new ModelAndView("/agendamentos");
+        return mb;
     }
 }
 /*
@@ -110,13 +144,4 @@ public class UsuarioController {
         }
         return mv;
     }
-
-    @PostMapping("/logout")
-    public ModelAndView logout(HttpSession session){
-        session.invalidate();
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/login");
-        return mv;
-    }
 */
-
