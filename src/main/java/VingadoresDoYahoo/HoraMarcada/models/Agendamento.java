@@ -21,7 +21,11 @@ public class Agendamento {
 
     @NotBlank
     @Column(nullable = false)
-    private String cliente;
+    private String nome;
+    
+    @NotBlank
+    @Column(nullable = false)
+    private String telefone;
 
     @NotBlank
     @Column(nullable = false)
@@ -41,14 +45,17 @@ public class Agendamento {
 
     public Agendamento() {}
 
-    public Agendamento(Long id, String cliente, String data, String modalidade, String endereco, Usuario usuario) {
+    public Agendamento(Long id, String nome, String telefone, String data, String modalidade, String endereco, Usuario usuario) {
         this.id = id;
-        this.cliente = cliente;
+        this.nome = nome;
+        this.telefone = telefone;
         this.data = data;
         this.modalidade = modalidade;
         this.endereco = endereco;
         this.usuario = usuario;
     }
+    
+    
 
     public Long getId() {
         return id;
@@ -58,15 +65,24 @@ public class Agendamento {
         this.id = id;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
+    
+    public String getNome() {
+		return nome;
+	}
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getData() {
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getData() {
         return data;
     }
 

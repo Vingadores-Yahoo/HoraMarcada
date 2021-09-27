@@ -71,27 +71,33 @@
                             <form action="/salvarAgendamento" method="post" th:object="${cadastroAgendamento}">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0"><label for="name">Cliente</label></h6>
+                                       <h6 class="mb-0"><label for="name">Nome</label></h6>
                                     </div>
-                                    <input type="text" required class="agenda" id="name"><span class="highlight"></span>
+                                    <input name="nome" type="text" required class="agenda" id="name"><span class="highlight"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0"><label for="telefone">Telefone</label></h6>
+                                    </div>
+                                    <input name="telefone" type="text" required class="agenda" id="horario"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0"><label for="horario">Data/Hora</label></h6>
                                     </div>
-                                    <input type="text" required class="agenda" id="horario"><span class="highlight"></span>
+                                    <input name="data" type="text" required class="agenda" id="horario"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0"><label for="servico">Serviço solicitado</label></h6>
                                     </div>
-                                    <input type="text" required class="agenda" id="servico"><span class="highlight"></span>
+                                    <input name="modalidade" type="text" required class="agenda" id="servico"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">  <label for="endereco">Endereço</label></h6>
                                     </div>
-                                    <input type="text" required class="agenda" id="endereco"><span class="highlight"></span>
+                                    <input name="endereco" type="text" required class="agenda" id="endereco"><span class="highlight"></span>
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm" id="editar">Salvar</button>
                                 <a th:href="@{/agendamentos}"><i class="fas fa-trash-alt"></i></a>
