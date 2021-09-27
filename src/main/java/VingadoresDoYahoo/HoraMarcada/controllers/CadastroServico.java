@@ -1,3 +1,6 @@
+package src.main.java.VingadoresDoYahoo.HoraMarcada.controllers;
+
+public class CadastroServico {
 
 package VingadoresDoYahoo.HoraMarcada.models;
 
@@ -18,17 +21,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "Servico")
-@NoArgsConstructor
-@AllArgsConstructor
 public class Servico { 
     	
+	
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -44,6 +41,17 @@ public class Servico {
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
+	
+	public Servico () {}
+	
+	public Servico (long id, Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
+		
+		this.id = id;
+		this.modalidade = modalidade;
+		this.localtrabalho = localtrabalho;
+		this.prestador = prestador;
+		
+	}
 
 	public Long getId() {
 		return id;
@@ -80,5 +88,7 @@ public class Servico {
 	
 
 	
+
+}
 
 }

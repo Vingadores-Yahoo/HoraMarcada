@@ -3,13 +3,22 @@ package VingadoresDoYahoo.HoraMarcada.controllers;
 //import VingadoresDoYahoo.HoraMarcada.models.LocalTrabalho;
 
 public class CadastroPrestador {
+	
+	
     private String nome;
+
     private String email;
+	
     private String telefone;
+	
     private String senha;
+	
     private String confesenha;
+	
     private Boolean termos;
+	
     private String endereco;
+	
     private String bairro;
     
 //    private LocalTrabalho localtrabalho;

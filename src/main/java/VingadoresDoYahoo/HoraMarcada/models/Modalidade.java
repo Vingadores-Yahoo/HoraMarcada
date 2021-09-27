@@ -1,0 +1,6 @@
+package src.main.java.VingadoresDoYahoo.HoraMarcada.models;
+
+public enum Modalidade {
+	
+			 MANICURE, PEDICURE, CABELEREIRO, MASSAGISTA, EXTENSAO_DE_CILIOS, DESIGN_DE_SOBRANCELHAS, DEPILACAO, MASSOTERAPEUTA, PODOLOGIA, ACUPUNTURISMO
+}
