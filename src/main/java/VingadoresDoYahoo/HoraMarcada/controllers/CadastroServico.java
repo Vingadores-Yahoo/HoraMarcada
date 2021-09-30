@@ -1,7 +1,6 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -13,10 +12,8 @@ import javax.validation.constraints.NotBlank;
 
 import VingadoresDoYahoo.HoraMarcada.models.*;
 
-@Entity
 public class CadastroServico { 
     	
-	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
