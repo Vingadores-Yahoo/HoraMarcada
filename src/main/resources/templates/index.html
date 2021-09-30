@@ -57,7 +57,7 @@
 						</button>
 						<div class="collapse navbar-collapse" id="navbarsExplore">
 							<ul class="navbar-nav">
-								<li class="nav-item">
+								<li class="nav-item"> //th:each de enum\\
 									<a class="nav-link" href="#" th:text="#{servico1.text}"></a>
 								</li>
 								<li class="nav-item">
@@ -94,112 +94,12 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="card-columns">
-						<div class="card card-pin">
+						<div class="card card-pin" th:each="servico : ${servicos}">
 							<img class="card-img" src="https://i.pinimg.com/236x/aa/50/8c/aa508cf9d158792b7463a4c4178c41c2.jpg" alt="Card image">
 							<div class="overlay">
-								<h2 class="card-title title">Manu's Hair, ZL</h2>
+								<h2 class="card-title title" th:text="${servico.prestador.usuario.getNome()}">Manu's Hair, ZL</h2>
 								<div class="more">
-									<a href="prestador.html" >
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/9d/f4/40/9df44039418fd1744883ec3e76bed147.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Amanda, ZN</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i ></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/b2/14/18/b21418c48aeaf8cfe7e0d88639040f5f.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Bianca, ZL</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/89/04/a4/8904a4e24beaec3bde3558697a45c663.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Sonia, ZO</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}" ></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/a6/c7/df/a6c7df30439a1fbfbacd152bc50274db.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Maria Eduarda, ZS</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/564x/9f/f5/47/9ff54765057e399d2ec9ecc003963c2b.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Julio, ZS</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/40/b5/69/40b569308d38dc5989a4f240616e27b6.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Pablo, ZL</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fG5haWx8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Viviane, ZO</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/564x/b5/fa/ad/b5faad9ac73419b2e4dfa74d61e2a9d7.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Yasmin, ZN</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/236x/c7/a1/2b/c7a12be7a0eeac38efe77b59d0cc9821.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Patrícia, ZS</h2>
-								<div class="more">
-									<a href="prestador.html">
-									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
-								</div>
-							</div>
-						</div>
-						<div class="card card-pin">
-							<img class="card-img" src="https://i.pinimg.com/564x/d2/d0/fc/d2d0fc2b9b04431f41f0ec608b0b866f.jpg" alt="Card image">
-							<div class="overlay">
-								<h2 class="card-title title">Fernanda's Studio, ZL</h2>
-								<div class="more">
-									<a href="prestador.html">
+									<a th:href="@{/prestadores/(${servico.prestador.getId()})}">
 									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
 								</div>
 							</div>

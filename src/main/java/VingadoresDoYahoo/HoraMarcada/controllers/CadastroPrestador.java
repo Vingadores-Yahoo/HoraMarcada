@@ -20,8 +20,7 @@ public class CadastroPrestador {
     private String endereco;
 	
     private String bairro;
-    
-//    private LocalTrabalho localtrabalho;
+
 
     public CadastroPrestador() {}
 
@@ -37,7 +36,6 @@ public class CadastroPrestador {
 		this.termos = termos;
 		this.endereco = endereco;
 		this.bairro = bairro;
-		//this.localtrabalho = localtrabalho;
 	}
 
 	public String getNome() {
@@ -104,13 +102,11 @@ public class CadastroPrestador {
 		this.bairro = bairro;
 	}
 
-/*
-	public LocalTrabalho getLocaltrabalho() {
-		return localtrabalho;
+	@Override
+	public String toString() {
+		return "CadastroPrestador [bairro=" + bairro + ", confesenha=" + confesenha + ", email=" + email + ", endereco="
+				+ endereco + ", nome=" + nome + ", senha=" + senha + ", telefone=" + telefone + ", termos=" + termos
+				+ "]";
 	}
-
-	public void setLocalTrabalho(LocalTrabalho localtrabalho) {
-		this.localtrabalho = localtrabalho;
-	}
-*/
+	
 }

@@ -1,5 +1,6 @@
 package VingadoresDoYahoo.HoraMarcada.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -11,14 +12,18 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import VingadoresDoYahoo.HoraMarcada.models.Agendamento;
+import VingadoresDoYahoo.HoraMarcada.models.Modalidade;
 import VingadoresDoYahoo.HoraMarcada.models.Prestador;
+import VingadoresDoYahoo.HoraMarcada.models.Servico;
 import VingadoresDoYahoo.HoraMarcada.models.Usuario;
 import VingadoresDoYahoo.HoraMarcada.repositories.AgendamentoRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.ServicoRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
 
 
@@ -37,43 +42,35 @@ public class UsuarioController {
     @Autowired
     AgendamentoRepository agendamentoRepository;
 
+    @Autowired
+    ServicoRepository servicoRepository;
+
     /*
     @Autowired
     private ServiceUsuario usuarioService;
     */
 
     @GetMapping("/")
-    public static ModelAndView index() {
+    public ModelAndView index(@RequestParam(required = false) String modalidade) {
+        List<Servico> servicos = null;
+        try {
+            servicos = servicoRepository.findAllByModalidade(Modalidade.valueOf(modalidade));
+        } catch (Exception e) {
+            servicos = servicoRepository.findAll();
+        }
         ModelAndView mv = new ModelAndView();
+        mv.addObject("servicos", servicos);
+        mv.addObject("modalidades", Modalidade.values());
         mv.setViewName("index");
         return mv;
     }
 
     @GetMapping("/login")
-    public static ModelAndView login(){
+    public ModelAndView login(){
     	ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
         return mv;
     }
-/*
-    @GetMapping("/perfilPrestador")
-    public static ModelAndView perfilPrestador(ModelMap model, @AuthenticationPrincipal Usuario usuario){
-        System.out.println(usuario);
-        model.addAttribute("usuario", usuario);
-    	ModelAndView mv = new ModelAndView();
-        mv.setViewName("perfilPrestador");
-        return mv;
-    }
-
-    @GetMapping("/avaliacoes")
-    public static ModelAndView avaliacoes(ModelMap model, @AuthenticationPrincipal Usuario usuario){
-        System.out.println(usuario);
-        model.addAttribute("usuario", usuario);
-    	ModelAndView mv = new ModelAndView();
-        mv.setViewName("avaliacoes");
-        return mv;
-    }
-    */
 
     @GetMapping("/avaliacoes")
     public ModelAndView avaliacoes(){
@@ -118,7 +115,7 @@ public class UsuarioController {
             return mv;
         }
         
-        Agendamento agendamento = new Agendamento(null,cadastroAgendamento.getCliente(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), null);
+        Agendamento agendamento = new Agendamento(null,cadastroAgendamento.getNome(),cadastroAgendamento.getTelefone(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), null);
         System.out.println(agendamento);
         agendamentoRepository.save(agendamento);
 
@@ -126,22 +123,3 @@ public class UsuarioController {
         return mb;
     }
 }
-/*
-    @PostMapping("/logar")
-    public ModelAndView login(@Validated Usuario usuario, BindingResult br, HttpSession session) throws NoSuchAlgorithmException, ServiceExc {
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("usuario", new Usuario());
-        if(br.hasErrors()){
-            mv.setViewName("/");
-        }
-
-        Usuario userLogin = usuarioService.loginUser(usuario.getEmail(), Util.md5(usuario.getSenha()));
-        if(userLogin == null){
-            mv.addObject("msg", "Usuário não econtrado.");
-        }else{
-            session.setAttribute("usuarioLogado", userLogin);
-            return index();
-        }
-        return mv;
-    }
-*/

@@ -116,8 +116,10 @@ public class Agendamento {
 
     @Override
     public String toString() {
-        return "Agendamento [cliente=" + cliente + ", data=" + data + ", endereco=" + endereco + ", id=" + id
-                + ", modalidade=" + modalidade + ", usuario=" + usuario + "]";
+        return "Agendamento [data=" + data + ", endereco=" + endereco + ", id=" + id + ", modalidade=" + modalidade
+                + ", nome=" + nome + ", telefone=" + telefone + ", usuario=" + usuario + "]";
     }
+
+    
 
 }

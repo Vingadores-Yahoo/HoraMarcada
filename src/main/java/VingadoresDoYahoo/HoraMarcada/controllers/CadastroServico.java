@@ -1,30 +1,21 @@
-package src.main.java.VingadoresDoYahoo.HoraMarcada.controllers;
+package VingadoresDoYahoo.HoraMarcada.controllers;
 
-public class CadastroServico {
-
-package VingadoresDoYahoo.HoraMarcada.models;
-
-import java.util.Collection;
-import java.util.Collections;
-
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import VingadoresDoYahoo.HoraMarcada.models.*;
 
-
-public class Servico { 
+@Entity
+public class CadastroServico { 
     	
-	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,9 +33,9 @@ public class Servico {
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
 	
-	public Servico () {}
+	public CadastroServico () {}
 	
-	public Servico (long id, Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
+	public CadastroServico (long id, Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
 		
 		this.id = id;
 		this.modalidade = modalidade;
@@ -85,10 +76,4 @@ public class Servico {
 		this.prestador = prestador;
 	}
 	
-	
-
-	
-
-}
-
 }
