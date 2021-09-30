@@ -9,17 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "Servico")
 @NoArgsConstructor
-@AllArgsConstructor
 public class Servico { 
     	
 	@Id
@@ -34,9 +32,14 @@ public class Servico {
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
+
+	public Servico(@NotBlank Modalidade modalidade, @NotBlank LocalTrabalho localtrabalho) {
+		this.modalidade = modalidade;
+		this.localtrabalho = localtrabalho;
+	}
 
 	public Long getId() {
 		return id;
@@ -62,16 +65,14 @@ public class Servico {
 		this.localtrabalho = localtrabalho;
 	}
 
-	public Prestador getPrestador() {
+	/*public Prestador getPrestador() {
 		return prestador;
 	}
 
 	public void setPrestador(Prestador prestador) {
-		this.prestador = prestador;
+		this.prestador = prestador; 
 	}
-	
-	
-
+	*/
 	
 
 }

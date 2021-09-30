@@ -1,14 +1,15 @@
 package VingadoresDoYahoo.HoraMarcada.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -24,9 +25,9 @@ public class Prestador {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
-
-    @Enumerated(EnumType.STRING)
-    private LocalTrabalho localtrabalho;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Servico> servico;
 
     @NotBlank
     @Column(nullable = false)
@@ -54,14 +55,6 @@ public class Prestador {
         this.usuario = usuario;
     }
 
-    public LocalTrabalho getLocaltrabalho() {
-        return this.localtrabalho;
-    }
-
-    public void setLocaltrabalho(LocalTrabalho localtrabalho) {
-        this.localtrabalho = localtrabalho;
-    }
-
     public String getEndereco() {
         return this.endereco;
     }
@@ -81,10 +74,7 @@ public class Prestador {
 
     @Override
     public String toString() {
-        return "Prestador [bairro=" + bairro + ", endereco=" + endereco + ", id=" + id + ", localtrabalho="
-                + localtrabalho + ", usuario=" + usuario + "]";
-    }
-
-    
-
+        return "Prestador [bairro=" + bairro + ", endereco=" + endereco + ", id=" + id + ", servico=" + servico
+                + ", usuario=" + usuario + "]";
+    }    
 }

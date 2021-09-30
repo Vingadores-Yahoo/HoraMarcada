@@ -34,6 +34,9 @@ public class PrestadorController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
+    @Autowired
+    ServicoRepository servicoRepository;
+
     @GetMapping("/cadastroPrestador")
     public ModelAndView novoPrestador(){
     	ModelAndView mv = new ModelAndView();
@@ -82,6 +85,29 @@ public class PrestadorController {
 
         prestadorRepository.save(prestador);
         ModelAndView mb = new ModelAndView("/login");
+        return mb;
+    }
+
+    @GetMapping("/formServico")
+    public ModelAndView formServico(Modalidade modalidade){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("formServico");
+        mv.addObject("servico", new Servico());
+        mv.addObject("modalidades", Modalidade.values());
+    	return mv;
+    }
+
+    @PostMapping("/salvarServico")
+    public ModelAndView salvarServico(@Valid CadastroServico cadastroServico, BindingResult br) throws Exception {
+        ModelAndView mv = new ModelAndView("/formServico");
+        if(br.hasErrors()){
+            return mv;
+        }
+        Servico servico = new Servico(cadastroServico.getModalidade(),cadastroServico.getLocaltrabalho());
+        System.out.println(servico);
+        servicoRepository.save(servico);
+
+        ModelAndView mb = new ModelAndView("/perfilPrestador");
         return mb;
     }
 
