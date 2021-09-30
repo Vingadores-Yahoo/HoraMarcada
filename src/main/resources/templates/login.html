@@ -1,42 +1,53 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Hora Marcada">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 </head>
 
 <body>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container"></div>
-        <div class="form-container sign-in-container">
-            <form action="login" method="post">  
-                <h1 th:text="#{entrar.text}"></h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span th:text="#{entrar_email.text}"></span>
-                <input name="email" type="email" placeholder="E-mail" />
-                <input name="senha" type="password" placeholder="Senha" />
-                <a href="#" th:text="#{lembrete.text}"></a><br>
-                <button type="submit" class="confirmar" th:text="#{button_confirm.text}"></button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                
-                <div class="overlay-panel overlay-right">
-                    <h1 th:text="#{ola.text}"></h1>
-                    <p th:text="#{cadastro.text}"></p>
-                    <button class="ghost" id="signUp"><a th:href="@{/cadastroConsumidor}" th:text="#{cadastrar.text}"></a></button>
+    <div class="container-fluid">
+        <a class="logo" th:href="@{/}"><img src="/fotos/logo2.png"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 login-box">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-7 log-det">
+                            <h2><b th:text="#{entrar.text}"></b></h2> <br><br>
+                            <form action="login" method="post"> 
+                            <div class="text-box-cont">
+                                    <input name="email" type="text" class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input name="senha" type="text" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="basic-addon1">
+                                <div class="row">
+                                    <p class="forget-p"><a href="#">Esqueceu a senha?</a></p>
+                                </div>
+                                <div class="input-group center mb-3">
+                                    <button type="submit" class="btn btn-success btn-round" th:text="#{button_confirm.text}"></button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-4 col-md-5 box-de">
+                            <div class="ditk-inf">
+                                <h2 class="w-100" th:text="#{ola.text}"></h2> <br>
+                                <p th:text="#{cadastro.text}"></p> <br>
+                                <a th:href="@{/cadastroConsumidor}"><button type="button" class="btn btn-outline-light" th:text="#{cadastrar.text}"></button></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </html>
