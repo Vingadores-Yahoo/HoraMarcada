@@ -32,11 +32,7 @@
                                 <p class="small-info">Não é um consumidor?<a th:href="@{/cadastroPrestador}"><i> Cadastrar-se como prestador.</i></a></p>
                             </div>
                             <div class="text-box-cont">
-<<<<<<< HEAD
                                 <form th:action="@{/cadastroConsumidor}" method="post" th:object="${cadastroConsumidor}">
-=======
-                                <form th:action="@{/cadastroConsumidor}" method="post" th:obj="${cadastroConsumidor}">
->>>>>>> 60d9ffa776564361ab2e76d61fab6b7f829c55e6
                                     <input name="nome" type="text" class="form-control" th:placeholder="#{nome.text}" aria-describedby="basic-addon1">
                                     <input name="email" type="email" class="form-control" th:placeholder="#{email.text}" aria-describedby="basic-addon1">
                                     <input name="telefone" type="tel" class="form-control" th:placeholder="#{tel_cel.text}" aria-describedby="basic-addon1">
@@ -44,14 +40,9 @@
                                     <input name="senha" type="password" class="form-control" th:placeholder="#{senha.text}" aria-describedby="basic-addon1" minlength="8" required>                                       
                                     <input name="confsenha" type="password" class="form-control" th:placeholder="#{confsenha.text}" aria-describedby="basic-addon1" minlength="8" required>         
                                     <div class="center sup">
-<<<<<<< HEAD
-                                    <input type="checkbox" placeholder="Termos" id="termo">
+                                    <input name="termos" type="checkbox" placeholder="Termos" id="termo">
                                     <label for="termo">Li e aceito os <a href="#">Termos de serviço.</a></label>
                                     <button type="submit" class="btn btn-success btn-round" th:text="#{button_confirm.text}"></button>
-=======
-                                    <!-- <input name="termos" type="checkbox" placeholder="Termos" id="termo"> 
-                                    <label for="termo">Li e aceito os <a href="#">Termos de serviço.</a></label> -->
->>>>>>> 60d9ffa776564361ab2e76d61fab6b7f829c55e6
                                     </div>
                                     <button type="submit" class="btn btn-success btn-round" th:text="#{button_confirm.text}"></button>
                                 </form>
