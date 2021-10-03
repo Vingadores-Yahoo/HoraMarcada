@@ -32,7 +32,7 @@
                                 <p class="small-info">Não é um consumidor?<a th:href="@{/cadastroPrestador}"><i> Cadastrar-se como prestador.</i></a></p>
                             </div>
                             <div class="text-box-cont">
-                                <form action="adastroConsumidor" method="post" th:object="${cadastroConsumidor}">
+                                <form action="cadastroConsumidor" method="post" th:object="${cadastroConsumidor}">
                                     <input name="nome" type="text" class="form-control" th:placeholder="#{nome.text}" aria-describedby="basic-addon1">
                                     <input name="email" type="email" class="form-control" th:placeholder="#{email.text}" aria-describedby="basic-addon1">
                                     <input name="telefone" type="tel" class="form-control" th:placeholder="#{tel_cel.text}" aria-describedby="basic-addon1">
