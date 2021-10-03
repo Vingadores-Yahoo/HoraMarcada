@@ -2,12 +2,8 @@ package VingadoresDoYahoo.HoraMarcada.repositories;
 
 import VingadoresDoYahoo.HoraMarcada.models.*;
 
-//import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ConsumidorRepository extends CrudRepository<Consumidor,Long>{
-/*  
-    @Query("select i from Usuario i where i.email = :email and i.senha = :senha")
-    public Consumidor findByEmail(String email);
-*/
+public interface ConsumidorRepository extends JpaRepository<Consumidor,Long>{
+
 }

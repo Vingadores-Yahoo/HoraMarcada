@@ -17,14 +17,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Builder
 public class Usuario implements UserDetails {
@@ -52,6 +48,18 @@ public class Usuario implements UserDetails {
     @Enumerated(EnumType.STRING)
     private RoleType role;
 
+    public Usuario(Long id, String nome, String email, String senha,
+            String telefone, RoleType role) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.role = role;
+    }
+
+    public Usuario() {
+    }
 
     public String getNome() {
         return this.nome;
