@@ -32,7 +32,7 @@
                                 <p class="small-info">Não é um prestador?<a th:href="@{/cadastroConsumidor}"><i> Cadastrar-se como consumidor.</i></a></p>
                             </div>
                             <div class="text-box-cont">
-                                <form action="/salvarPrestador" method="post" th:object="${cadastroPrestador}">
+                                <form th:action="@{/cadastroPrestador}" method="post" th:object="${cadastroPrestador}">
                                     <input name ="nome" type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1">
                                     <input name ="email" type="email" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
                                     <input name ="telefone" type="tel" class="form-control" placeholder="Telefone/celular"  aria-describedby="basic-addon1">
@@ -40,13 +40,6 @@
                                     <input name ="confsenha" type="password" class="form-control" placeholder="Confirmação Senha" aria-describedby="basic-addon1" minlength="8" required>         
                                     <input name ="endereco" type="text" class="form-control" placeholder="Endereço" aria-describedby="basic-addon1">
                                     <input name ="bairro" type="text" class="form-control" placeholder="Bairro" aria-describedby="basic-addon1">
-                                    <!--
-                                    <label for="local" th:text="#{localT.text}"></label>
-                                    <select name="local" id="local">
-                                        <option value="studio">Studio</option>
-                                        <option value="domicilio">Domicílio</option>
-                                    </select>
-                                    -->
                                     <div class="center sup">
                                     <input type="checkbox" placeholder="Termos" id="termo" name="termo">
                                     <label for="termo"><a href="#">Li e aceito os Termos de serviço.</a></label>

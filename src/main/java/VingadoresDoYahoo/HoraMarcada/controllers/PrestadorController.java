@@ -2,28 +2,23 @@
 
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
-import VingadoresDoYahoo.HoraMarcada.exceptions.EmailExistsException;
-import VingadoresDoYahoo.HoraMarcada.models.*;
-import VingadoresDoYahoo.HoraMarcada.repositories.*;
+import VingadoresDoYahoo.HoraMarcada.models.Prestador;
+import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
+import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
 
 @Controller
 public class PrestadorController {
 
-    private final PasswordEncoder passwordEncoder;
-
     @Autowired
-    public PrestadorController(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -33,13 +28,6 @@ public class PrestadorController {
 
     @Autowired
     PrestadorRepository prestadorRepository;
-
-    @GetMapping("/cadastroPrestador")
-    public ModelAndView novoPrestador(){
-    	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("cadastroPrestador");
-    	return mv;
-    }
 
     @GetMapping("/portfolio")
     public ModelAndView portfolio(){
@@ -63,26 +51,4 @@ public class PrestadorController {
     	mv.setViewName("infoPrestador");
     	return mv;
     }
-
-    @PostMapping("/salvarPrestador")
-    public ModelAndView salvarPrestador(@Valid CadastroPrestador cadastroPrestador, BindingResult br) throws Exception {
-        ModelAndView mv = new ModelAndView("/cadastroPrestador");
-        if(br.hasErrors()){
-            return mv;
-        }
-        if(usuarioRepository.findByEmail(cadastroPrestador.getEmail()) != null){
-            throw new EmailExistsException("Email já cadastrado: " + cadastroPrestador.getEmail());
-        }
-
-        cadastroPrestador.setSenha(passwordEncoder.encode(cadastroPrestador.getSenha()));
-        
-        Usuario usuario = new Usuario(null, cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADOR);
-        Prestador prestador = new Prestador(cadastroPrestador.getEndereco(),cadastroPrestador.getBairro(), usuario);
-        System.out.println(prestador);
-
-        prestadorRepository.save(prestador);
-        ModelAndView mb = new ModelAndView("/login");
-        return mb;
-    }
-
 }

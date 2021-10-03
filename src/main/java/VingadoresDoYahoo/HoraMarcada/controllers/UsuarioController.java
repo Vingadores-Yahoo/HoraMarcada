@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import VingadoresDoYahoo.HoraMarcada.models.Agendamento;
+import VingadoresDoYahoo.HoraMarcada.models.Consumidor;
 import VingadoresDoYahoo.HoraMarcada.models.Modalidade;
 import VingadoresDoYahoo.HoraMarcada.models.Prestador;
+import VingadoresDoYahoo.HoraMarcada.models.RoleType;
 import VingadoresDoYahoo.HoraMarcada.models.Servico;
 import VingadoresDoYahoo.HoraMarcada.models.Usuario;
 import VingadoresDoYahoo.HoraMarcada.repositories.AgendamentoRepository;
@@ -44,6 +47,9 @@ public class UsuarioController {
 
     @Autowired
     ServicoRepository servicoRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     /*
     @Autowired
@@ -121,5 +127,64 @@ public class UsuarioController {
 
         ModelAndView mb = new ModelAndView("/agendamentos");
         return mb;
+    }
+
+    @GetMapping("/cadastroPrestador")
+    public ModelAndView novoPrestador(){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("cadastroPrestador");
+    	return mv;
+    }
+    
+    @PostMapping("/cadastroPrestador")
+    public ModelAndView salvarPrestador(@Valid CadastroPrestador cadastroPrestador, BindingResult br) throws Exception {
+        ModelAndView mv = new ModelAndView("/cadastroPrestador");
+        if(br.hasErrors()){
+            return mv;
+        }
+        if(usuarioRepository.findByEmail(cadastroPrestador.getEmail()) != null){
+            mv.addObject("mensagem","E-mail já cadastrado");
+            return mv;
+        }
+
+        cadastroPrestador.setSenha(passwordEncoder.encode(cadastroPrestador.getSenha()));
+        
+        Usuario usuario = new Usuario(null, cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADOR);
+        Prestador prestador = new Prestador(cadastroPrestador.getEndereco(),cadastroPrestador.getBairro(), usuario);
+        System.out.println(prestador);
+
+        prestadorRepository.save(prestador);
+        
+        return login();
+    }
+
+    @GetMapping("/cadastroConsumidor")
+    public ModelAndView novoConsumidor(){
+    	ModelAndView mv = new ModelAndView();
+    	mv.setViewName("cadastroConsumidor");
+        return mv;
+    }
+
+    @PostMapping("/cadastroConsumidor")
+    public ModelAndView salvarConsumidor(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
+        ModelAndView mv = new ModelAndView("/cadastroConsumidor");
+        if(br.hasErrors()){
+            return mv;
+        }
+        if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
+            mv.addObject("mensagem","E-mail já cadastrado");
+            return mv;
+        }
+
+        cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
+        
+        Usuario usuario = new Usuario(null, cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);
+        Consumidor consumidor = new Consumidor(cadastroConsumidor.getEndereco(), usuario);
+
+        System.out.println(consumidor);
+
+        consumidorRepository.save(consumidor);
+
+        return login();
     }
 }
