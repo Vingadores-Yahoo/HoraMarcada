@@ -67,7 +67,7 @@ public class PrestadorController {
     	return mv;
     }
 
-    @PostMapping("/salvarPrestador")
+    @PostMapping("/cadastroPrestador")
     public ModelAndView salvarPrestador(@Valid CadastroPrestador cadastroPrestador, BindingResult br) throws Exception {
         ModelAndView mv = new ModelAndView("/cadastroPrestador");
         if(br.hasErrors()){

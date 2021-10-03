@@ -7,18 +7,16 @@ public class CadastroConsumidor {
     private String endereco;
     private String senha;
     private String confsenha;
-    private Boolean termos;
 
     public CadastroConsumidor() {}
 
-    public CadastroConsumidor(String nome, String email, String telefone, String endereco, String senha, String confsenha, Boolean termos) {
+    public CadastroConsumidor(String nome, String email, String telefone, String endereco, String senha, String confsenha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
         this.senha = senha;
         this.confsenha = confsenha;
-        this.termos = termos;
     }
 
     public String getNome() {
@@ -67,14 +65,6 @@ public class CadastroConsumidor {
 
     public void setConfsenha(String confsenha) {
         this.confsenha = confsenha;
-    }
-
-    public Boolean getTermos() {
-        return this.termos;
-    }
-
-    public void setTermos(Boolean termos) {
-        this.termos = termos;
     }
 
 }

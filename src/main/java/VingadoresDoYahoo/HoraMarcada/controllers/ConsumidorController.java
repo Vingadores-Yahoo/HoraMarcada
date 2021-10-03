@@ -39,15 +39,14 @@ public class ConsumidorController {
         return mv;
     }
 
-    @PostMapping("/salvarConsumidor")
-    public ModelAndView salvarConsumidor(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
-        ModelAndView mv = new ModelAndView("/cadastroConsumidor");
+    @PostMapping(path = "/cadastroConsumidor")
+    public String salvarConsumidor(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
         if(br.hasErrors()){
-            return mv;
+            return "/cadastroConsumidor";
         }
         if(usuarioRepository.findByEmail(cadastroConsumidor.getEmail()) != null){
-            mv.addObject("mensagem","E-mail já cadastrado");
-            return mv;
+            //throw new EmailExistsException("Email já cadastrado: " + cadastroConsumidor.getEmail());
+            return "/cadastroConsumidor";
         }
 
         cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
@@ -58,8 +57,7 @@ public class ConsumidorController {
         System.out.println(consumidor);
 
         consumidorRepository.save(consumidor);
-        ModelAndView mb = new ModelAndView("/login");
-        return mb;
+        return "/login";
     
     }
 }
