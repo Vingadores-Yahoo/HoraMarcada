@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
 
 import VingadoresDoYahoo.HoraMarcada.models.*;
 
@@ -18,11 +17,9 @@ public class CadastroServico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	@NotBlank
 	@Enumerated(EnumType.STRING)
     private Modalidade modalidade;
 	
-	@NotBlank
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 	

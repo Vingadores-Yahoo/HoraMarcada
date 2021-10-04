@@ -1,4 +1,3 @@
-
 package VingadoresDoYahoo.HoraMarcada.models;
 
 import javax.persistence.CascadeType;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import lombok.NoArgsConstructor;
 
@@ -24,11 +22,9 @@ public class Servico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	@NotBlank
 	@Enumerated(EnumType.STRING)
     private Modalidade modalidade;
 	
-	@NotBlank
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 	
@@ -36,9 +32,10 @@ public class Servico {
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
 
-	public Servico(@NotBlank Modalidade modalidade, @NotBlank LocalTrabalho localtrabalho) {
+	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
+		this.prestador = prestador;
 	}
 
 	public Long getId() {
@@ -65,14 +62,12 @@ public class Servico {
 		this.localtrabalho = localtrabalho;
 	}
 
-	/*public Prestador getPrestador() {
+	public Prestador getPrestador() {
 		return prestador;
 	}
 
 	public void setPrestador(Prestador prestador) {
 		this.prestador = prestador; 
 	}
-	*/
-	
 
 }

@@ -68,21 +68,24 @@
                     <h4 th:text="#{form.text}"></h4> <br>
                     <div class="card mb-3">
                         <div class="card-body">
-                            <form action="/salvarServico" method="post" th:object="${servico}">
+                            <form action="salvarServico" method="post" th:object="${cadastroServico}">
                                 <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0"><label for="name">Modalidade</label></h6>
                                     </div>
-                                    <p th:each="modalidade:${modalidades}">
-                                        <input style="display:block" th:field="*{modalidade}" type="checkbox" name="modalidade" th:value="${modalidade}" th:text="${modalidade}"><br/>
+                                    <p th:each="modalidade : ${modalidade}">
+                                        <input th:field="*{modalidade}" type="radio" name="modalidade" th:value="${modalidade}">
+                                        <label th:text="${modalidade.name()} "></label><br/>
                                     </p>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0"><label for="telefone">Local de Trabalho</label></h6>
                                     </div>
-                                    <input style="display:block" th:field="*{localtrabalho}" type="checkbox" name="localtrabalho" value="STUDIO" >
-                                    <input style="display:block" th:field="*{localtrabalho}" type="checkbox" name="localtrabalho" value="DOMICILIO" >
+                                    <p th:each="localtrabalho: ${localtrabalho}">
+                                        <input name="localtrabalho" th:field="*{localtrabalho}" type="radio" th:value="${localtrabalho}">
+                                        <label th:text="${localtrabalho.name()} "></label><br/>
+                                    </p>
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm" id="editar">Salvar</button>
                                 <a th:href="@{/agendamentos}"><i class="fas fa-trash-alt"></i></a>
