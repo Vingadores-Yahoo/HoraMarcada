@@ -27,22 +27,22 @@
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-7 log-det">
-                            <h2>Cadastro do Prestador</h2>
+                            <h2 th:text="#{cadastroP.text}"></h2>
                             <div class="row">
-                                <p class="small-info">Não é um prestador?<a th:href="@{/cadastroConsumidor}"><i> Cadastrar-se como consumidor.</i></a></p>
+                                <p class="small-info"><a th:href="@{/cadastroConsumidor}"><i th:text="#{redirect_consumidor.text}"></i></a></p>
                             </div>
                             <div class="text-box-cont">
                                 <form action="cadastroPrestador" method="post" th:object="${cadastroPrestador}">
-                                    <input name ="nome" type="text" class="form-control" placeholder="Nome" aria-describedby="basic-addon1">
-                                    <input name ="email" type="email" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
-                                    <input name ="telefone" type="tel" class="form-control" placeholder="Telefone/celular"  aria-describedby="basic-addon1">
-                                    <input name ="senha" type="password" class="form-control" placeholder="Senha (Mínimo: 8 caracteres)" aria-describedby="basic-addon1" minlength="8" required>                              
-                                    <input name ="confsenha" type="password" class="form-control" placeholder="Confirmação Senha" aria-describedby="basic-addon1" minlength="8" required>         
-                                    <input name ="endereco" type="text" class="form-control" placeholder="Endereço" aria-describedby="basic-addon1">
-                                    <input name ="bairro" type="text" class="form-control" placeholder="Bairro" aria-describedby="basic-addon1">
+                                    <input name ="nome" type="text" class="form-control" th:placeholder="#{nome.text}" aria-describedby="basic-addon1">
+                                    <input name ="email" type="email" class="form-control" th:placeholder="#{email.text}" aria-describedby="basic-addon1">
+                                    <input name ="telefone" type="tel" class="form-control" th:placeholder="#{tel_cel.text}"  aria-describedby="basic-addon1">
+                                    <input name ="senha" type="password" class="form-control" th:placeholder="#{senha.text}" aria-describedby="basic-addon1" minlength="8" required>                              
+                                    <input name ="confsenha" type="password" class="form-control" th:placeholder="#{confsenha.text}" aria-describedby="basic-addon1" minlength="8" required>         
+                                    <input name ="endereco" type="text" class="form-control" th:placeholder="#{endereco.text}" aria-describedby="basic-addon1">
+                                    <input name ="bairro" type="text" class="form-control" th:placeholder="#{bairro.text}" aria-describedby="basic-addon1">
                                     <div class="center sup">
                                     <input type="checkbox" placeholder="Termos" id="termo" name="termo">
-                                    <label for="termo"><a href="#">Li e aceito os Termos de serviço.</a></label>
+                                    <label for="termo"><a href="#" th:text="#{termos.text}"></a></label>
                                     <button type="submit" class="btn btn-success btn-round" th:text="#{confirmar.text}"></button>
                                     </div>
                                 </form>  

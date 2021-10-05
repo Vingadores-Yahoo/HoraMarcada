@@ -31,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/", "/cadastroConsumidor", "/cadastroPrestador", 
                         "/perfilConsumidor", "/perfilPrestador",
                         "/exibicaoPrestador", "/avaliacaoPrestador", "/agendamentosPrestador", "/formServico",
+                        "/novoAgendamento", "/salvarAgendamento",
                         "/fotos/**", "/css/**", "/js/**", "/fontawesome/**").permitAll()
             .antMatchers("/lista").hasRole(ADMIN.name())
             .anyRequest()

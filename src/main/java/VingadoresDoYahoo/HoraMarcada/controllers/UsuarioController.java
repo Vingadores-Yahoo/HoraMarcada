@@ -79,15 +79,17 @@ public class UsuarioController {
     }
 
     @GetMapping("/avaliacoes")
-    public ModelAndView avaliacoes(){
+    public ModelAndView avaliacoes(ModelMap model, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
+        model.addAttribute("usuario", usuario);
     	mv.setViewName("avaliacoes");
     	return mv;
     }
 
     @GetMapping("/agendamentos")
-    public ModelAndView agendamentos(){
+    public ModelAndView agendamentos(ModelMap model, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
+        model.addAttribute("usuario", usuario);
     	mv.setViewName("agendamentos");
     	return mv;
     }

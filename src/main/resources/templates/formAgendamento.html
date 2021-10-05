@@ -28,17 +28,17 @@
 			</ul>
 			<ul class="navbar-nav ml-auto align-items-center">
 				<li class="nav-item">
-				    <a class="nav-link" th:href="@{/}">Página inicial</a>
+				    <a class="nav-link" th:href="@{/}" th:text="#{perfil.text}"></a>
 				</li>
 				<li class="nav-item">
-				    <a class="nav-link" th:href="@{/informacoes}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto perfil"><span class="align-middle">Perfil</span></a>
+				    <a class="nav-link" th:href="@{/informacoes}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto perfil"><span class="align-middle" th:text="#{perfil.text}"></span></a>
 				</li>
 				<li class="nav-item dropdown">
 				    <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				        <svg style="margin-top:10px;" class="_3DJPT" version="1.1" viewbox="0 0 32 32" width="21" height="21" aria-hidden="false" data-reactid="71"><path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" data-reactid="22"></path></svg>
 				    </a>
 				    <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
-					    <a class="nav-link" th:href="@{/meuPerfil}">Configurações</a>
+					    <a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
 				    </div>
 				</li>
 			</ul>
@@ -55,9 +55,9 @@
                                 <div class="mt-3">
                                     <h4>Maria Eduarda</h4><br>
                                     <ul id="menuprofile">
-                                        <li><a th:href="@{/meuPerfil}" class="link-secondary">Meu perfil</a></li>
-                                        <li><a th:href="@{/agendamentos}" class="link-secondary"><b>Agendamentos</b></a></li>
-                                        <li><a th:href="@{/avaliacoes}" class="link-secondary active">Minhas avaliações</a></li>
+                                        <li><a th:href="@{/meuPerfil}" class="link-secondary" th:text="#{perfil.text}"></a></li>
+                                        <li><a th:href="@{/agendamentos}" class="link-secondary"><b th:text="#{agendamentos.text}"></b></a></li>
+                                        <li><a th:href="@{/avaliacoes}" class="link-secondary active" th:text="#{avaliacao.text}"></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,41 +65,41 @@
                     </div>  
                 </div>
                 <div class="col-md-8">
-                    <h4>Formulário de Agendamento</h4> <br>
+                    <h4 th:text="#{form.text}"></h4> <br>
                     <div class="card mb-3">
                         <div class="card-body">
                             <form action="/salvarAgendamento" method="post" th:object="${cadastroAgendamento}">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0"><label for="name">Nome</label></h6>
+                                       <h6 class="mb-0"><label for="name" th:text="#{nome.text}"></label></h6>
                                     </div>
                                     <input name="nome" type="text" required class="agenda" id="name"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="telefone">Telefone</label></h6>
+                                        <h6 class="mb-0"><label for="telefone" th:text="#{tel_cel.text}"></label></h6>
                                     </div>
                                     <input name="telefone" type="text" required class="agenda" id="horario"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="horario">Data/Hora</label></h6>
+                                        <h6 class="mb-0"><label for="horario" th:text="#{horario.text}"></label></h6>
                                     </div>
                                     <input name="data" type="text" required class="agenda" id="horario"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="servico">Serviço solicitado</label></h6>
+                                        <h6 class="mb-0"><label for="servico" th:text="#{servicos.text}"></label></h6>
                                     </div>
                                     <input name="modalidade" type="text" required class="agenda" id="servico"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">  <label for="endereco">Endereço</label></h6>
+                                        <h6 class="mb-0">  <label for="endereco" th:text="#{endereco.text}"></label></h6>
                                     </div>
                                     <input name="endereco" type="text" required class="agenda" id="endereco"><span class="highlight"></span>
                                 </div>
-                                <button type="submit" class="btn btn-outline-primary btn-sm" id="editar">Salvar</button>
+                                <button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{salvar.text}"></button>
                                 <a th:href="@{/agendamentos}"><i class="fas fa-trash-alt"></i></a>
                             </form>
                         </div>

@@ -24,7 +24,7 @@
                             <form action="login" method="post"> 
                             <div class="text-box-cont">
                                     <input name="email" type="email" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
-                                    <input name="senha" type="password" class="form-control" placeholder="Senha" aria-describedby="basic-addon1">
+                                    <input name="senha" type="password" class="form-control" th:placeholder="#{senha.text}" aria-describedby="basic-addon1">
                                 <div class="row">
                                     <p class="forget-p"><a href="#" th:text="#{lembrete.text}">*</a></p>
                                 </div>
