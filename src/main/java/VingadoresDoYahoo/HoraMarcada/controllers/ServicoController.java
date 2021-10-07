@@ -30,9 +30,11 @@ public class ServicoController {
     PrestadorRepository prestadorRepository;
 
     @GetMapping("/novoServico")
-    public ModelAndView novoServico(CadastroServico cadastroServico){
+    public ModelAndView novoServico(CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
+        //model.addAttribute("usuario", usuario);
     	mv.setViewName("formServico");
+        mv.addObject("usuario", usuario);
         mv.addObject("modalidade", Modalidade.values());
         mv.addObject("localtrabalho", LocalTrabalho.values());
     	return mv;
@@ -41,7 +43,7 @@ public class ServicoController {
     @PostMapping("/salvarServico")
     public ModelAndView salvarAgendamento(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
         if(br.hasErrors()){
-            return novoServico(cadastroServico);
+            return novoServico(cadastroServico, usuario);
         }
         
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());

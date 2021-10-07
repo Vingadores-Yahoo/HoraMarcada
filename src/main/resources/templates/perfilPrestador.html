@@ -121,13 +121,13 @@
                         </div>
                     </div>
                     <div class="card4 mb-3">
-                        <div class="card-body">
+                        <div class="card-body" th:each="servico : ${servico}"~'AO D'>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0" th:text="#{servico.text}"></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Manicure
+                                    <p th:text = "${servico.getModalidade()}"> </p>
                                 </div>
                             </div>
                             <hr>
@@ -136,7 +136,7 @@
                                     <h6 class="mb-0" th:text="#{atendimento.text}"></h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Studio
+                                    <p th:text = "${servico.getLocaltrabalho()}"> </p>
                                 </div>
                             </div>
                             <hr>

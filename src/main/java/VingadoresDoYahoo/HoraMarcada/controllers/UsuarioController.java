@@ -102,6 +102,11 @@ public class UsuarioController {
             mv.setViewName("perfilConsumidor");
         }else{
             Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
+            Prestador prestador = prestadorOptional.get();
+
+            Optional<Servico> servicoOptional = servicoRepository.findByPrestadorId(prestador.getId());
+            
+            model.addAttribute("servico", servicoOptional.get());
             model.addAttribute("prestador", prestadorOptional.get());
             model.addAttribute("usuario", usuario);
             mv.setViewName("perfilPrestador");
@@ -110,25 +115,27 @@ public class UsuarioController {
     }
 
     @GetMapping("/novoAgendamento")
-    public ModelAndView novoAgendamentos(){
+    public ModelAndView novoAgendamentos( @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
-    	mv.setViewName("formAgendamentos");
+        mv.addObject("usuario", usuario);
+    	mv.setViewName("formAgendamento");
     	return mv;
     }
 
     @PostMapping("/salvarAgendamento")
-    public ModelAndView salvarAgendamento(@Valid CadastroAgendamento cadastroAgendamento, BindingResult br) throws Exception {
+    public ModelAndView salvarAgendamento(@Valid CadastroAgendamento cadastroAgendamento, BindingResult br, @AuthenticationPrincipal Usuario usuario) throws Exception {
         ModelAndView mv = new ModelAndView("/novoAgendamento");
         if(br.hasErrors()){
             return mv;
         }
         
-        Agendamento agendamento = new Agendamento(null,cadastroAgendamento.getNome(),cadastroAgendamento.getTelefone(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), null);
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(usuario.getId());
+
+        Agendamento agendamento = new Agendamento(cadastroAgendamento.getNome(),cadastroAgendamento.getTelefone(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), usuarioOptional.get());
         System.out.println(agendamento);
         agendamentoRepository.save(agendamento);
 
-        ModelAndView mb = new ModelAndView("/agendamentos");
-        return mb;
+        return new ModelAndView("redirect:/agendamentos");
     }
 
     @GetMapping("/cadastroPrestador")

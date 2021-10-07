@@ -45,8 +45,7 @@ public class Agendamento {
 
     public Agendamento() {}
 
-    public Agendamento(Long id, String nome, String telefone, String data, String modalidade, String endereco, Usuario usuario) {
-        this.id = id;
+    public Agendamento(String nome, String telefone, String data, String modalidade, String endereco, Usuario usuario) {
         this.nome = nome;
         this.telefone = telefone;
         this.data = data;
@@ -54,7 +53,6 @@ public class Agendamento {
         this.endereco = endereco;
         this.usuario = usuario;
     }
-    
     
 
     public Long getId() {

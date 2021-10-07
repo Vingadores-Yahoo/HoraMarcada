@@ -47,6 +47,15 @@ public class Prestador {
         this.bairro = bairro;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
     public Usuario getUsuario() {
         return this.usuario;
     }
@@ -69,6 +78,16 @@ public class Prestador {
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+
+    public List<Servico> getServico() {
+        return servico;
+    }
+
+
+    public void setServico(List<Servico> servico) {
+        this.servico = servico;
     }
 
 

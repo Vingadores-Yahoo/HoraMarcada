@@ -54,7 +54,7 @@
                             <div class="d-flex flex-column align-items-center text-center">
                                 <img src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4 ></h4><br>
+                                    <h4 th:text="${usuario.Nome}"></h4><br>
                                     <ul id="menuprofile">
                                         <li><a th:href="@{/meuPerfil}" class="link-secondary"><b th:text="#{perfil.text}"></b></a></li>
                                         <li><a th:href="@{/agendamentos}" class="link-secondary" th:text="#{agendamentos.text}"></a></li>
