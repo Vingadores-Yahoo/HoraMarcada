@@ -1,8 +1,13 @@
 package VingadoresDoYahoo.HoraMarcada.repositories;
 
-import org.springframework.data.repository.CrudRepository;
-import VingadoresDoYahoo.HoraMarcada.models.Agendamento;
+import VingadoresDoYahoo.HoraMarcada.models.*;
 
-public interface AgendamentoRepository extends CrudRepository<Agendamento, Long> {
-    
+import java.util.*;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AgendamentoRepository extends JpaRepository<Agendamento,Long>{
+
+    List<Agendamento> findByUsuarioId(Long id);
+
 }

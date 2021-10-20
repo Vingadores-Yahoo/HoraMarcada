@@ -106,6 +106,49 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-8">
+            <div class="card-body" th:each="servico : ${servico}">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0" th:text="#{servico.text}"></h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <p th:text = "${servico.getModalidade()}"> </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h6 class="mb-0" th:text="#{atendimento.text}"></h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                        <p th:text = "${servico.getLocaltrabalho()}"> </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <form onsubmit="Checkfiles(this)">
+                            <input type="file" name="arquivos" class="btn btn-light"  id="files" accept="image/png, image/jpeg"  multiple /> 
+                            <script>
+                                function Checkfiles(){
+                                    var fup = document.getElementById('filename');
+                                    var fileName = fup.value;
+                                    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+
+                                    if(ext =="jpeg" || ext=="png"){
+                                        return true;
+                                    }
+                                    else{
+                                        return false;
+                                    }
+                                }
+                            </script>
+                        </form> <br>
+                    </div>
+                </div>
+
     </main>
 
     <script src="/js/app.js"></script>

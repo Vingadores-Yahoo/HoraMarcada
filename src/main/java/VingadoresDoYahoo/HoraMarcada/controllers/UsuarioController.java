@@ -89,6 +89,10 @@ public class UsuarioController {
     @GetMapping("/agendamentos")
     public ModelAndView agendamentos(ModelMap model, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
+
+        List<Agendamento> agendamento = agendamentoRepository.findByUsuarioId(usuario.getId());
+            
+        mv.addObject("agendamento", agendamento);
         model.addAttribute("usuario", usuario);
     	mv.setViewName("agendamentos");
     	return mv;
@@ -104,9 +108,9 @@ public class UsuarioController {
             Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
             Prestador prestador = prestadorOptional.get();
 
-            Optional<Servico> servicoOptional = servicoRepository.findByPrestadorId(prestador.getId());
+            List<Servico> servico = servicoRepository.findByPrestadorId(prestador.getId());
             
-            model.addAttribute("servico", servicoOptional.get());
+            mv.addObject("servico", servico);
             model.addAttribute("prestador", prestadorOptional.get());
             model.addAttribute("usuario", usuario);
             mv.setViewName("perfilPrestador");

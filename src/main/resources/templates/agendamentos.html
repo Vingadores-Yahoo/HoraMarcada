@@ -68,14 +68,14 @@
                 <a th:href="@{/novoAgendamento}"><button type="button" class="btn btn-outline-secondary" id="agendamento" th:text="#{add.text}">+Adicionar</button></a>
                 <div class="col-md-8">
                     <div class="card-ag mb-3">
-                        <div class="card-body">
+                        <div class="card-body" th:each="agendamento : ${agendamento}">
                             <form>
                                 <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0" th:text="#{prestador.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Luana Souza
+                                       <p  th:text = "${agendamento.getNome()}"></p>
                                     </div>
                                 </div>
                                 <hr>
@@ -84,7 +84,7 @@
                                         <h6 class="mb-0" th:text="#{horario.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        29/09 - 16:00h
+                                        <p  th:text = "${agendamento.getData()}"></p>
                                     </div>
                                 </div>
                                 <hr>
@@ -93,7 +93,7 @@
                                         <h6 class="mb-0" th:text="#{servicos.text}"></h6>
                                     </div> 
                                     <div class="col-sm-9 text-secondary">
-                                        Manicure
+                                        <p  th:text = "${agendamento.getModalidade()}"></p>
                                     </div>                               
                                 </div>
                                 <hr>
@@ -102,7 +102,7 @@
                                         <h6 class="mb-0" th:text="#{endereco.text}"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        Rua pipipi popopo, 300
+                                        <p  th:text = "${agendamento.getEndereco()}"></p>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></button>

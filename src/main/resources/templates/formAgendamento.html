@@ -39,6 +39,7 @@
 				    </a>
 				    <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
 					    <a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
+                        <a class="nav-link" th:href="@{/login}" th:text="#{icon_item3.text}"></a>
 				    </div>
 				</li>
 			</ul>
@@ -71,7 +72,7 @@
                             <form action="/salvarAgendamento" method="post" th:object="${cadastroAgendamento}">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0"><label for="name" th:text="#{nome.text}"></label></h6>
+                                       <h6 class="mb-0"><label for="name" th:text="#{prestador.text}"></label></h6>
                                     </div>
                                     <input name="nome" type="text" required class="agenda" id="name"><span class="highlight"></span>
                                 </div>
@@ -108,5 +109,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 </html> 

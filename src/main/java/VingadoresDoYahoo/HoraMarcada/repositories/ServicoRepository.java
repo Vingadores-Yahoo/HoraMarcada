@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ServicoRepository extends JpaRepository<Servico,Long>{
 
-    Optional<Servico> findByPrestadorId(Long id);
+    List<Servico> findByPrestadorId(Long id);
 
     List<Servico> findAllByModalidade(Modalidade modalidade);
 }

@@ -31,7 +31,7 @@
 					<a class="nav-link" th:href="@{/}" th:text="#{home_button.text}"></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/meuPerfil}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto-de-perfil"><span class="align-middle">Perfil</span></a>
+					<a class="nav-link" th:href="@{/meuPerfil}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto-de-perfil"><span class="align-middle" th:text="#{perfil.text}"></span></a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="card4 mb-3">
-                        <div class="card-body" th:each="servico : ${servico}"~'AO D'>
+                        <div class="card-body" th:each="servico : ${servico}">
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0" th:text="#{servico.text}"></h6>
@@ -173,5 +173,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 </html> 
