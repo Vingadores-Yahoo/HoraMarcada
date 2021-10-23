@@ -70,8 +70,8 @@ public class ServicoController {
         return new ModelAndView("redirect:/meuPerfil");
     }
     
-    @RequestMapping(value = "delete". method = RequestMethod.Post) 
-    public String delete(HttpServeltRequest request) {
+    @DeleteMapping("/deletarServico") 
+    public ModelAndView deletarServico(@Valid )
     		
     	servicoRepository.deleteById(cadastroServico.getId);
     	return new ModelAndView("redirect:/meuPerfil");

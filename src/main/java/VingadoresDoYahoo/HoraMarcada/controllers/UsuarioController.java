@@ -140,8 +140,12 @@ public class UsuarioController {
     		
             cadastroPrestador.setSenha(passwordEncoder.encode(cadastroPrestador.getSenha()));
             
-            Usuario usuario = new Usuario(cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADOR);
-            Prestador prestador = new Prestador(cadastroPrestador.getEndereco(),cadastroPrestador.getBairro(), usuario);
+            Usuario usuario1 = new Usuario(cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADOR);
+          
+            prestador.setEndereco(cadastroPrestador.getEndereco());
+            prestador.setBairro(cadastroPrestador.getBairro());
+            prestador.setUsuario(usuario1)
+            
             System.out.println(prestador);
 
             prestadorRepository.save(prestador);
@@ -167,11 +171,14 @@ public ModelAndView atualizarPerfil(@Valid CadastroConsumidor cadastroConsumidor
 
         cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
         
-        Usuario usuario = new Usuario(cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);
-        Consumidor consumidor = new Consumidor(cadastroConsumidor.getEndereco(), usuario);
-        System.out.println(consumidor);
+        Usuario usuario1 = new Usuario(cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);;
+        
+        consumidor.setEndereco(cadastroConsumidor.getEndereco());
+        consumidor.setUsuario(usuario1);
 
         consumidorRepository.save(consumidor);
+        
+        System.out.println(consumidor);
         
         return mv;
 }
@@ -229,6 +236,11 @@ public ModelAndView atualizarPerfil(@Valid CadastroConsumidor cadastroConsumidor
         prestadorRepository.save(prestador);
         
         return login();
+    }
+    
+    RequestMapping(value = "delete". method = RequestMethod.POST)
+    public String delete(hHttpServeletRequest request) {
+    	
     }
     
     
