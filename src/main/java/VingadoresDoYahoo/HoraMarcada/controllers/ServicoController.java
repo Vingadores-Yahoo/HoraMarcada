@@ -54,4 +54,27 @@ public class ServicoController {
 
         return new ModelAndView("redirect:/meuPerfil");
     }
+    
+    @PutMapping("/alterarServico")
+    public ModelAndView salvarAgendamento(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
+        if(br.hasErrors()){
+        	return new ModelAndView("redirect:/meuPerfil");
+        }
+        
+        Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
+
+        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestadorOptional.get());
+        System.out.println(servico);
+        servicoRepository.save(servico);
+
+        return new ModelAndView("redirect:/meuPerfil");
+    }
+    
+    @RequestMapping(value = "delete". method = RequestMethod.Post) 
+    public String delete(HttpServeltRequest request) {
+    		
+    	servicoRepository.deleteById(cadastroServico.getId);
+    	return new ModelAndView("redirect:/meuPerfil");
+    	
+    }
 }

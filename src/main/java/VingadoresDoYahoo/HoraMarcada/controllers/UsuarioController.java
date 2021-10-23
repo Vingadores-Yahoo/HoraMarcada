@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import VingadoresDoYahoo.HoraMarcada.models.Agendamento;
@@ -28,6 +29,7 @@ import VingadoresDoYahoo.HoraMarcada.repositories.ConsumidorRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.ServicoRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.UsuarioRepository;
+import src.main.java.VingadoresDoYahoo.HoraMarcada.repositories.Long;
 
 
 @Controller
@@ -97,7 +99,7 @@ public class UsuarioController {
     	mv.setViewName("agendamentos");
     	return mv;
     }
-
+    
     @GetMapping("/meuPerfil")
     public ModelAndView perfilCorreto(ModelMap model, @AuthenticationPrincipal Usuario usuario){
         ModelAndView mv = new ModelAndView();
@@ -117,6 +119,62 @@ public class UsuarioController {
         }
         return mv;
     }
+    
+    @GetMapping("/atualizarPerfil")
+    public ModelAndView atualizarPerfil(){
+    	ModelAndView mv = new ModelAndView();
+        mv.setViewName("atualizarPerfil");
+        return mv;
+    }
+    @PutMapping("/atualizarPerfil")
+    public ModelAndView atualizarPerfil(@Valid CadastroPrestador cadastroPrestador, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
+    	ModelAndView mv = new ModelAndView("/meuPerfil");
+    	
+    		if (br.hasErrors()) {
+    			return mv;
+    		}	
+    		
+    		Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
+    		Prestador prestador = prestadorOptional.get();
+
+    		
+            cadastroPrestador.setSenha(passwordEncoder.encode(cadastroPrestador.getSenha()));
+            
+            Usuario usuario = new Usuario(cadastroPrestador.getNome(), cadastroPrestador.getEmail(), cadastroPrestador.getSenha(), cadastroPrestador.getTelefone(), RoleType.PRESTADOR);
+            Prestador prestador = new Prestador(cadastroPrestador.getEndereco(),cadastroPrestador.getBairro(), usuario);
+            System.out.println(prestador);
+
+            prestadorRepository.save(prestador);
+            
+            return mv;
+        }
+
+
+@PutMapping("/atualizarPerfil")
+public ModelAndView atualizarPerfil(@Valid CadastroConsumidor cadastroConsumidor, BindingResult br) throws Exception {
+	ModelAndView mv = new ModelAndView("/meuPerfil");
+	
+		if (br.hasErrors()) {
+			return mv;
+		}	
+        if(usuarioRepository.findByEmail(cadastroPrestador.getEmail()) != null){
+            mv.addObject("mensagem","E-mail já cadastrado");
+            return mv;
+        }
+        
+        Optional<Usuarior> usuarioOptional = usuarioRepository.findById(usuario.getId());
+        Consumidor consumidor = usuarioOptional.get();
+
+        cadastroConsumidor.setSenha(passwordEncoder.encode(cadastroConsumidor.getSenha()));
+        
+        Usuario usuario = new Usuario(cadastroConsumidor.getNome(), cadastroConsumidor.getEmail(), cadastroConsumidor.getSenha(), cadastroConsumidor.getTelefone(), RoleType.CONSUMIDOR);
+        Consumidor consumidor = new Consumidor(cadastroConsumidor.getEndereco(), usuario);
+        System.out.println(consumidor);
+
+        consumidorRepository.save(consumidor);
+        
+        return mv;
+}
 
     @GetMapping("/novoAgendamento")
     public ModelAndView novoAgendamentos( @AuthenticationPrincipal Usuario usuario){
@@ -141,6 +199,8 @@ public class UsuarioController {
 
         return new ModelAndView("redirect:/agendamentos");
     }
+    
+   
 
     @GetMapping("/cadastroPrestador")
     public ModelAndView novoPrestador(){
@@ -170,6 +230,11 @@ public class UsuarioController {
         
         return login();
     }
+    
+    
+    
+    @PutMapping("atualizarPerfilPrestador")
+    public ModelAndView atualizarPerfilPrestador(@RequestParam)
 
     @GetMapping("/cadastroConsumidor")
     public ModelAndView novoConsumidor(){
