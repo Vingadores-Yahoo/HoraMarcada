@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import VingadoresDoYahoo.HoraMarcada.models.*;
@@ -41,7 +43,7 @@ public class ServicoController {
     }
 
     @PostMapping("/salvarServico")
-    public ModelAndView salvarAgendamento(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
+    public ModelAndView salvarServico(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
         if(br.hasErrors()){
             return novoServico(cadastroServico, usuario);
         }
@@ -55,6 +57,7 @@ public class ServicoController {
         return new ModelAndView("redirect:/meuPerfil");
     }
     
+    /*
     @PutMapping("/alterarServico")
     public ModelAndView salvarAgendamento(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
         if(br.hasErrors()){
@@ -71,10 +74,11 @@ public class ServicoController {
     }
     
     @DeleteMapping("/deletarServico") 
-    public ModelAndView deletarServico(@Valid )
+    public ModelAndView deletarServico()
     		
     	servicoRepository.deleteById(cadastroServico.getId);
     	return new ModelAndView("redirect:/meuPerfil");
     	
     }
+    */
 }

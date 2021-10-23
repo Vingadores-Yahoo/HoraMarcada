@@ -1,3 +1,4 @@
+<!--
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
@@ -32,16 +33,15 @@
                                 <p class="small-info"><a th:href="@{/cadastroPrestador}"><i th:text="#{redirect_prestador.text}"></i></a></p>
                             </div>
                             <div class="text-box-cont">
-                                <form action="cadastroConsumidor" method="post" th:object="${cadastroConsumidor}">
+                                <form action="atualizarPerfil/prestador" method="post" th:object="${cadastroPrestador}">
+                                    <input type="hidden" name="_method" value="put"/>
                                     <input name="nome" type="text" class="form-control" th:placeholder="#{nome.text}" aria-describedby="basic-addon1">
                                     <input name="email" type="email" class="form-control" th:placeholder="#{email.text}" aria-describedby="basic-addon1">
                                     <input name="telefone" type="tel" class="form-control" th:placeholder="#{tel_cel.text}" aria-describedby="basic-addon1">
                                     <input name="endereco" type="text" class="form-control" th:placeholder="#{endereco.text}" aria-describedby="basic-addon1">
-                                    <input name="senha" type="password" class="form-control" th:placeholder="#{senha.text}" aria-describedby="basic-addon1" minlength="8" required>                                       
-                                    <input name="confsenha" type="password" class="form-control" th:placeholder="#{confsenha.text}" aria-describedby="basic-addon1" minlength="8" required>         
+                                    <input name="bairro" type="text" class="form-control" th:placeholder="#{bairro.text}" aria-describedby="basic-addon1">
+                                    <input name="senha" type="password" class="form-control" th:placeholder="#{senha.text}" aria-describedby="basic-addon1" minlength="8" required>
                                     <div class="center sup">
-                                    <input type="checkbox" placeholder="Termos" id="termo">
-                                    <label for="termo"> <a href="#" th:text="#{termos.text}"></a></label>
                                     <button type="submit" class="btn btn-success btn-round" th:text="#{button_confirm.text}"></button>
                                     </div>
                                 </form>
@@ -58,3 +58,4 @@
 <script src="/js/bootstrap.min.js"></script>
 
 </html>
+-->

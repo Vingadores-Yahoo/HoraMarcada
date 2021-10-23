@@ -67,7 +67,7 @@
     font-family: 'Montserrat'; }
   
   body {
-    background-color: #004a53 !important;
+    background-color: #E6E6FA!important;
     font-family: 'Montserrat';
     color: #292929; }
   
@@ -115,18 +115,21 @@
           font-size: 26px; } }
   
   .btn-success {
-    background-color: #005b77;
-    border-color: #005b77;}
-    .btn-success:hover {
-      background-color: #003342 !important;
-      border-color: #003342 !important; }
-    .btn-success:active {
-      background-color: #001920 !important;
-      border-color: #001920 !important; }
-    .btn-success:focus {
-      background-color: #001920 !important;
-      border-color: #001920 !important;
-      box-shadow: none !important; }
+    background-color: #0a7494;
+    border-color: #0a7494;}
+
+  .btn-success:hover {
+    background-color: #005b77 !important;
+    border-color: #005b77 !important; }
+  
+  .btn-success:active {
+    background-color: #003342 !important;
+    border-color: #003342 !important; }
+            
+  .btn-success:focus {
+    background-color: #003342 !important;
+    border-color: #003342 !important;
+    box-shadow: none !important; }
   
   .btn {
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);

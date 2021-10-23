@@ -151,7 +151,7 @@ footer.footer {
   background-clip: border-box;
   border: 0 solid rgba(0,0,0,.125);
   border-radius: .25rem;
-  margin-top: 7%;
+  margin-top: 2%;
   margin-left: 24em;
 }
 
@@ -166,7 +166,7 @@ footer.footer {
   background-clip: border-box;
   border: 0 solid rgba(0,0,0,.125);
   border-radius: .25rem;
-  margin-top: -45%;
+  margin-top: -51%;
   margin-left: 53%;
   width: 90%;
 }
@@ -232,7 +232,8 @@ footer.footer {
   border-radius: 30px;
   -moz-border-radius:0.4em; 
   -khtml-border-radius:0.4em;
-  margin-left: 380px;
+  margin-left: 370px;
+  margin-top: -25px;
 }
 
 #menuprofile{
@@ -353,6 +354,7 @@ input:focus {
 
 #files{
   border-style: none;
+  background-color: #fff !important;
 }
 
 .col-md-8 h4{
