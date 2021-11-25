@@ -118,7 +118,7 @@
                         <div class="row align-items-end">
                             <form th:action="@{/novoServico}">
                                 <button type="submit" class="btn btn-outline-secondary" id="adicionar" th:text="#{add_servico.text}"></button>
-                            </form>
+                            </form>    
                         </div>
                     </div>
                 </div>
@@ -167,8 +167,15 @@
                                 <div class="col-sm-12">
                                     <button type="button" class="btn btn-outline-primary btn-sm" id="editar2" th:text="#{edicao.text}"></button>
                                     <i class="fas fa-trash-alt"></i>
+                                    <!-- <form th:href="@{'/deletarServico?servico='  + ${servico.getElementById()}}">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></button>
+                                    </form> !-->
+                                    
+                                        <a th:href="@{'/deletarServico/' + ${servico.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></a>
+                                    
                                 </div>
-                            </div>
+                                
+                            </div>  
                         </div>
                     </div> 
             </div>

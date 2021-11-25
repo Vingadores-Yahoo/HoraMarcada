@@ -97,9 +97,9 @@
 						<div class="card card-pin" th:each="servico : ${servicos}">
 							<img class="card-img" src="https://i.pinimg.com/236x/aa/50/8c/aa508cf9d158792b7463a4c4178c41c2.jpg" alt="Card image">
 							<div class="overlay">
-								<h2 class="card-title title" th:text="${servico.prestador.usuario.getNome()}">Manu's Hair, ZL</h2>
+								<h2 class="card-title title">Manu's Hair, ZL</h2>
 								<div class="more">
-									<a th:href="@{'/prestadores/' + ${servico.prestador.getId()}}">
+									<a th:href="@{'/prestadores/' + ${servico.getPrestador_id()}}">
 									<i class="fa fa-arrow-circle-o-right" aria-hidden="true" th:text="#{info.text}"></i></a>
 								</div>
 							</div>

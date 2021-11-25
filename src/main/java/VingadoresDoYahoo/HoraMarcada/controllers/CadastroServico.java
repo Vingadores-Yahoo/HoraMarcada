@@ -25,16 +25,16 @@ public class CadastroServico {
 	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
-    private Prestador prestador;
+    private Long prestador_id;
 	
 	public CadastroServico () {}
 	
-	public CadastroServico (long id, Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
+	public CadastroServico (long id, Modalidade modalidade, LocalTrabalho localtrabalho, Long prestador_id) {
 		
 		this.id = id;
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
-		this.prestador = prestador;
+		this.prestador_id = prestador_id;
 		
 	}
 
@@ -61,13 +61,4 @@ public class CadastroServico {
 	public void setLocaltrabalho(LocalTrabalho localtrabalho) {
 		this.localtrabalho = localtrabalho;
 	}
-
-	public Prestador getPrestador() {
-		return prestador;
-	}
-
-	public void setPrestador(Prestador prestador) {
-		this.prestador = prestador;
-	}
-	
 }

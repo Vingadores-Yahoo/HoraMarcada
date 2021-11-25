@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 //import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -49,8 +50,9 @@ public class ServicoController {
         }
         
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
+        Prestador prestador = prestadorOptional.get();
 
-        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestadorOptional.get());
+        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestador.getId());
         System.out.println(servico);
         servicoRepository.save(servico);
 
@@ -72,13 +74,14 @@ public class ServicoController {
 
         return new ModelAndView("redirect:/meuPerfil");
     }
-    
-    @DeleteMapping("/deletarServico") 
-    public ModelAndView deletarServico()
-    		
-    	servicoRepository.deleteById(cadastroServico.getId);
-    	return new ModelAndView("redirect:/meuPerfil");
-    	
-    }
     */
+
+    @GetMapping(value = "/deletarServico/{id}") 
+    public ModelAndView deletarServico(@PathVariable Long id, Servico servico){
+    		
+        System.out.println(servico); 
+        servicoRepository.deleteById(servico.getId());
+        System.out.println("FUNCIONOU");
+    	return new ModelAndView("redirect:/meuPerfil");
+    }
 }
