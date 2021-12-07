@@ -50,9 +50,8 @@ public class ServicoController {
         }
         
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
-        Prestador prestador = prestadorOptional.get();
 
-        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestador.getId());
+        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestadorOptional.get());
         System.out.println(servico);
         servicoRepository.save(servico);
 

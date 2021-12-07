@@ -10,4 +10,8 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento,Long>{
 
     List<Agendamento> findByUsuarioId(Long id);
 
+    void deleteById(long id);
+
+    //void editBy(Agendamento agendamento);
+
 }

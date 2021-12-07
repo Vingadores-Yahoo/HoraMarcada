@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -203,6 +204,27 @@ public class UsuarioController {
 
         return new ModelAndView("redirect:/agendamentos");
     }
+
+    @GetMapping(value = "/deletarAgendamento/{id}") 
+    public ModelAndView deletarAgendamento(@PathVariable Long id, Agendamento agendamento){
+    		 
+        agendamentoRepository.deleteById(agendamento.getId());
+    	return new ModelAndView("redirect:/agendamentos");
+    }
+
+    //@GetMapping(value = "/editarAgendamento/{id}")
+    //public ModelAndView editarAgendamento(@Valid CadastroAgendamento cadastroAgendamento, BindingResult br, @AuthenticationPrincipal Usuario usuario) throws Exception {
+     //       ModelAndView mv = new ModelAndView("/novoAgendamento");
+       //     if(br.hasErrors()){
+         //       return mv;
+           // }
+            
+            //Optional<Usuario> usuarioOptional = usuarioRepository.findById(usuario.getId());
+
+        //Agendamento agendamento = new Agendamento(cadastroAgendamento.getNome(),cadastroAgendamento.getTelefone(),cadastroAgendamento.getData(),cadastroAgendamento.getModalidade(),cadastroAgendamento.getEndereco(), usuarioOptional.get());
+        //agendamentoRepository.edit(agendamento);
+        //return new ModelAndView("redirect:/agendamentos");
+    //}
 
     @GetMapping("/cadastroPrestador")
     public ModelAndView novoPrestador(){

@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -28,14 +30,14 @@ public class Servico {
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 	
-	//@ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "prestador_id", referencedColumnName = "id")
-    private Long prestador_id;
+	@ManyToOne()
+    @JoinColumn(name = "prestador_id", referencedColumnName = "id")
+    private Prestador prestador;
 
-	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Long prestador_id) {
+	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
-		this.prestador_id = prestador_id;
+		this.prestador = prestador;
 	}
 
 	public Long getId() {
@@ -62,11 +64,12 @@ public class Servico {
 		this.localtrabalho = localtrabalho;
 	}
 
-	public Long getPrestador_id() {
-		return prestador_id;
+	public Prestador getPrestador() {
+		return prestador;
 	}
 
-	public void setPrestador_id(Long prestador_id) {
-		this.prestador_id = prestador_id;
+	public void setPrestador(Prestador prestador) {
+		this.prestador = prestador;
 	}
+
 }

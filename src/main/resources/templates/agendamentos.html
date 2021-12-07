@@ -106,6 +106,8 @@
                                 </div>
                                 <button type="button" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></button>
                                 <i class="fas fa-trash-alt"></i>
+                                <a th:href="@{'/deletarAgendamento/' + ${agendamento.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></a>
+                               <!-- <a th:href="@{'/editarAgendamento/' + ${agendamento.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></a> -->
                             </form>
                         </div>
                     </div>

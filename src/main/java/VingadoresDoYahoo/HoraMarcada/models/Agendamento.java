@@ -1,6 +1,6 @@
 package VingadoresDoYahoo.HoraMarcada.models;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +39,7 @@ public class Agendamento {
     @Column(nullable = false)
     private String endereco;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
