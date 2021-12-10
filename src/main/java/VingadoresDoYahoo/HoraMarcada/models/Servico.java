@@ -1,5 +1,7 @@
 package VingadoresDoYahoo.HoraMarcada.models;
 
+import java.util.List;
+
 //import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -30,25 +32,20 @@ public class Servico {
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 
-	private String url; 
+	private List<String> UrlFotos;
 	
 	@ManyToOne()
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
 
-	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, String url, Prestador prestador) {
+	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
-		this.url = url;
 		this.prestador = prestador;
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Modalidade getModalidade() {
@@ -67,12 +64,12 @@ public class Servico {
 		this.localtrabalho = localtrabalho;
 	}
 
-	public String getUrl() {
-		return url;
+	public List<String> getUrlFotos() {
+		return UrlFotos;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrlFotos(List<String> urlFotos) {
+		UrlFotos = urlFotos;
 	}
 
 	public Prestador getPrestador() {

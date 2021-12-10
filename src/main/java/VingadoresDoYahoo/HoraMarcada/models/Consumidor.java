@@ -34,6 +34,10 @@ public class Consumidor {
         this.usuario = usuario;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getEndereco() {
         return this.endereco;
     }
