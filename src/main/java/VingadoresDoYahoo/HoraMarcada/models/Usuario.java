@@ -61,6 +61,10 @@ public class Usuario implements UserDetails {
     public Usuario() {
     }
 
+    public Long getId() {
+        return this.id;
+    }
+
     public String getNome() {
         return this.nome;
     }
@@ -129,5 +133,7 @@ public class Usuario implements UserDetails {
         return "Usuario [email=" + email + ", id=" + id + ", nome=" + nome + ", role=" + role + ", senha=" + senha
                 + ", telefone=" + telefone + "]";
     }
+
+
     
 }
