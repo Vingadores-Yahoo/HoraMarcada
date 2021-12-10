@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import VingadoresDoYahoo.HoraMarcada.models.*;
 import VingadoresDoYahoo.HoraMarcada.repositories.PrestadorRepository;
 import VingadoresDoYahoo.HoraMarcada.repositories.ServicoRepository;
+import VingadoresDoYahoo.HoraMarcada.services.CloudinaryService;
 
 @Controller
 public class ServicoController {
@@ -34,8 +35,11 @@ public class ServicoController {
     @Autowired
     PrestadorRepository prestadorRepository;
 
+    @Autowired
+    CloudinaryService cloudinaryService;
+
     @GetMapping("/novoServico")
-    public ModelAndView novoServico(@RequestParam("file") MultipartFile file, CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario){
+    public ModelAndView novoServico(CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
         //model.addAttribute("usuario", usuario);
     	mv.setViewName("formServico");
@@ -46,11 +50,12 @@ public class ServicoController {
     }
 
     @PostMapping("/salvarServico")
-    public ModelAndView salvarServico(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
+    public ModelAndView salvarServico(@RequestParam("file") MultipartFile file, @Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
         if(br.hasErrors()){
-            return novoServico(null, cadastroServico, usuario); //Null referente ao MultipartFile
+            return novoServico(cadastroServico, usuario); 
         }
         
+        cloudinaryService.uploadFile(file);
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
 
         Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestadorOptional.get());

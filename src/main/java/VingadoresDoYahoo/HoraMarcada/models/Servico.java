@@ -29,14 +29,17 @@ public class Servico {
 	
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
+
+	private String url; 
 	
 	@ManyToOne()
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
 
-	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
+	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, String url, Prestador prestador) {
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
+		this.url = url;
 		this.prestador = prestador;
 	}
 
@@ -62,6 +65,14 @@ public class Servico {
 
 	public void setLocaltrabalho(LocalTrabalho localtrabalho) {
 		this.localtrabalho = localtrabalho;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public Prestador getPrestador() {
