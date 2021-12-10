@@ -55,10 +55,9 @@ public class ServicoController {
             return novoServico(cadastroServico, usuario); 
         }
         
-        cloudinaryService.uploadFile(file);
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
 
-        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), prestadorOptional.get());
+        Servico servico = new Servico(cadastroServico.getModalidade() ,cadastroServico.getLocaltrabalho(), cloudinaryService.uploadFile(file), prestadorOptional.get());
         System.out.println(servico);
         servicoRepository.save(servico);
 
