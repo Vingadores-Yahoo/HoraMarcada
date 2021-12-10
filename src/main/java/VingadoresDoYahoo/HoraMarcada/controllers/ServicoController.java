@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 //import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,7 +35,7 @@ public class ServicoController {
     PrestadorRepository prestadorRepository;
 
     @GetMapping("/novoServico")
-    public ModelAndView novoServico(CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario){
+    public ModelAndView novoServico(@RequestParam("file") MultipartFile file, CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario){
     	ModelAndView mv = new ModelAndView();
         //model.addAttribute("usuario", usuario);
     	mv.setViewName("formServico");
@@ -46,7 +48,7 @@ public class ServicoController {
     @PostMapping("/salvarServico")
     public ModelAndView salvarServico(@Valid CadastroServico cadastroServico, @AuthenticationPrincipal Usuario usuario, BindingResult br) throws Exception {
         if(br.hasErrors()){
-            return novoServico(cadastroServico, usuario);
+            return novoServico(null, cadastroServico, usuario); //Null referente ao MultipartFile
         }
         
         Optional<Prestador> prestadorOptional = prestadorRepository.findByUsuarioId(usuario.getId());
