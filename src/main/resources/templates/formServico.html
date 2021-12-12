@@ -88,6 +88,9 @@
                                         <label th:text="${localtrabalho.name()} "></label><br/>
                                     </p>
                                 </div>
+                                <div class="row">
+                                    <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
+                                </div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{salvar.text}"></button>
                                 <a th:href="@{/agendamentos}"><i class="fas fa-trash-alt"></i></a>
                             </form>

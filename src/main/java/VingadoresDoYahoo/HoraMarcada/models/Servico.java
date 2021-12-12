@@ -1,8 +1,5 @@
 package VingadoresDoYahoo.HoraMarcada.models;
 
-import java.util.List;
-
-//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
@@ -32,15 +28,16 @@ public class Servico {
 	@Enumerated(EnumType.STRING)
     private LocalTrabalho localtrabalho;
 
-	private List<String> UrlFotos;
+	private String UrlFotos;
 	
 	@ManyToOne()
     @JoinColumn(name = "prestador_id", referencedColumnName = "id")
     private Prestador prestador;
 
-	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho, Prestador prestador) {
+	public Servico(Modalidade modalidade, LocalTrabalho localtrabalho,String url, Prestador prestador) {
 		this.modalidade = modalidade;
 		this.localtrabalho = localtrabalho;
+		this.UrlFotos = url;
 		this.prestador = prestador;
 	}
 
@@ -64,11 +61,11 @@ public class Servico {
 		this.localtrabalho = localtrabalho;
 	}
 
-	public List<String> getUrlFotos() {
+	public String getUrlFotos() {
 		return UrlFotos;
 	}
 
-	public void setUrlFotos(List<String> urlFotos) {
+	public void setUrlFotos(String urlFotos) {
 		UrlFotos = urlFotos;
 	}
 
