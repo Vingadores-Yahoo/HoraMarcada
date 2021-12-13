@@ -53,16 +53,10 @@ public class Agendamento {
         this.endereco = endereco;
         this.usuario = usuario;
     }
-    
 
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     
     public String getNome() {
 		return nome;
@@ -117,7 +111,5 @@ public class Agendamento {
         return "Agendamento [data=" + data + ", endereco=" + endereco + ", id=" + id + ", modalidade=" + modalidade
                 + ", nome=" + nome + ", telefone=" + telefone + ", usuario=" + usuario + "]";
     }
-
-    
 
 }
