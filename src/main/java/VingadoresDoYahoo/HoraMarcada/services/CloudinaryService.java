@@ -25,7 +25,7 @@ public class CloudinaryService {
 
 	@Value("${cloudinary.api_secret}")
 	private String apiSecret;
-
+    
     @Autowired
     private Cloudinary cloudinaryConfig;
 

@@ -29,7 +29,7 @@
 					<a class="nav-link" th:href="@{/}" th:text="#{home_button.text}"></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" th:href="@{/informacoes}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto perfil"><span class="align-middle" th:text="#{perfil.text}"></span></a>
+					<a class="nav-link active" th:href="@{/informacoes}"><img class="rounded-circle mr-2" src="/fotos/av.png" width="30" alt="foto perfil"><span class="align-middle" th:text="#{perfil.text}"></span></a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +46,7 @@
 
     <main>
 		<div class="container mb-2">
-			<img src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" class="mt-neg100 mb-4 rounded-circle" width="120" alt="foto perfil">
+			<img src="/fotos/av.png" class="mt-neg100 mb-4 rounded-circle" width="120" alt="foto perfil">
 			<h1 class="font-weight-bold title" id="nomeperfil" th:text="${usuario.Nome}"></h1><br> <br>
 		</div>
 		<div class="container-fluid mb-5">
