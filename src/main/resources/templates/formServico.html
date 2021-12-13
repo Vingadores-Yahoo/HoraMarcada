@@ -69,7 +69,7 @@
                     <h4 th:text="#{form.text}"></h4> <br>
                     <div class="card mb-3">
                         <div class="card-body">
-                            <form action="salvarServico" method="post" th:object="${cadastroServico}">
+                            <form action="salvarServico" method="post" th:object="${cadastroServico}" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0"><label for="name" th:text="#{modalidade.text}">M</label></h6>
@@ -89,7 +89,7 @@
                                     </p>
                                 </div>
                                 <div class="row">
-                                    <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
+                                    <input type="file" name="file" />
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{salvar.text}"></button>
                                 <a th:href="@{/agendamentos}"><i class="fas fa-trash-alt"></i></a>

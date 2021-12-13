@@ -95,7 +95,7 @@
 				<div class="row">
 					<div class="card-columns">
 						<div class="card card-pin" th:each="servico : ${servicos}">
-							<img class="card-img" src="https://i.pinimg.com/236x/aa/50/8c/aa508cf9d158792b7463a4c4178c41c2.jpg" alt="Card image">
+							<img class="card-img" th:src="${servico.getUrlFotos()}" alt="Card image">
 							<div class="overlay">
 								<h2 class="card-title title">Manu's Hair, ZL</h2>
 								<div class="more">
