@@ -1,187 +1,171 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Perfil</title>
-	<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-	<link rel="stylesheet" href="/css/app.css">
-	<link rel="stylesheet" href="/css/theme.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-		<a class="navbar-brand font-weight-bolder mr-3" th:href="@{/}"><img src="/fotos/logo.png" alt="logo"></a>
-		<button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarsDefault">
-			<ul class="navbar-nav mr-auto align-items-center">
-				<form class="bd-search hidden-sm-down">
-					<input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search..." autocomplete="off">
-					<div class="dropdown-menu bd-search-results" id="search-results"></div>
-				</form>
-			</ul>
-			<ul class="navbar-nav ml-auto align-items-center">
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/}" th:text="#{home_button.text}"></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/meuPerfil}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto-de-perfil"><span class="align-middle" th:text="#{perfil.text}"></span></a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				        <svg style="margin-top:10px;" class="_3DJPT" version="1.1" viewbox="0 0 32 32" width="21" height="21" aria-hidden="false" data-reactid="71"><path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" data-reactid="22"></path></svg>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
-						<a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
-					    <a class="nav-link" th:href="@{/logout}" th:text="#{icon_item3.text}"></a>
+<html xmlns:th="http://www.thymeleaf.org">> 
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="unititled">
+		<meta name="keywords" content="HTML5 Crowdfunding Profile Template">
+		<meta name="author" content="Audain Designs">
+		<title>Meu Perfil</title>
+		<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/style-perfil.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<a class="navbar-brand font-weight-bolder mr-3" th:href="@{/}"><img src="/fotos/logo.png" alt="logo"></a>
+	        <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarsDefault">
+	            <ul class="navbar-nav mr-auto align-items-center">
+	                <li><form class="bd-search hidden-sm-down">
+	                    <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search..." autocomplete="off">
+	                    <div class="dropdown-menu bd-search-results" id="search-results"></div>
+	                </form> </li>
+	            </ul>
+	            <ul class="navbar-nav ml-auto align-items-center">
+	                <li class="nav-item">
+	                    <a class="nav-link" th:href="@{/}"><b th:text="#{home_button.text}"></b></a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link" th:href="@{/meuPerfil}"><img class="rounded-circle mr-2" src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" width="30" alt="foto perfil"><span class="align-middle"><b th:text="#{perfil.text}"></b></span></a>
+	                </li>
+	                <li class="nav-item dropdown">
+	                    <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                        <svg style="margin-top:10px;" class="_3DJPT" version="1.1" viewbox="0 0 32 32" width="21" height="21" aria-hidden="false" data-reactid="71"><path d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z" data-reactid="22"></path></svg>
+	                    </a>
+	                    <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
+	                        <a class="nav-link" th:href="@{/meuPerfil}" th:text="#{icon_item2.text}"></a>
+					    	<a class="nav-link" th:href="@{/logout}" th:text="#{icon_item3.text}"></a>
+	                    </div>
+	                </li>
+	            </ul>
+	        </div>
+		</nav>
+		<div class="main-content">
+			<div class="container">
+				<div class="row">
+					<div class="content col-md-4 col-sm-12 col-xs-12">
+						<div class="section-block summary">
+							<div class="profile-contents">
+								<img src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" alt="Admin" class="rounded-circle" width="150">
+								<h2 class="section-title"  th:text="${usuario.Nome}"></h2>
+								<ul id="perfil">
+                                    <li><a th:href="@{/meuPerfil}" class="link-secondary active"><b th:text="#{perfil.text}"></b></a></li>
+                                    <li><a th:href="@{/agendamentos}" class="link-secondary" th:text="#{agendamentos.text}"></a></li>
+                                    <li><a th:href="@{/avaliacoes}" class="link-secondary" th:text="#{avaliacao.text}"></a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
-				</li>
-			</ul>
-		</div>
-	</nav> 
-    <div class="container">
-        <div class="main-body">
-            <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
-                    <div class="card2">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://i.pinimg.com/564x/06/23/24/062324438da8eaaa4fc22224859b1e2c.jpg" alt="foto-de-perfil" class="rounded-circle" width="150">
-                                <div class="mt-3">
-                                    <h4><a th:text="${usuario.Nome}"></a></h4><br>
-                                    <ul id="menuprofile">
-                                        <li><a th:href="@{/meuPerfil}" class="link-secondary"><b th:text="#{perfil.text}"></b></a></li>
-                                        <li><a th:href="@{/agendamentos}" class="link-secondary" th:text="#{agendamentos.text}"></a></li>
-                                        <li><a th:href="@{/avaliacoes}" class="link-secondary" th:text="#{avaliacao.text}"></a></li>
-                                    <ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <td width="60%" valign="top"></td>
-                    <div class="col-md-8">
-                        <div class="card2 mb-3">
-                            <div class="card-body">
-                                <div class="row">
+					<div class="content col-md-8 col-sm-12 col-xs-12">
+						<div class="section-block">
+							<form>
+								<div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0" th:text="#{nome.text}"></h6>
+                                        <h6 class="mb-0"><b th:text="#{nome.text}"></b></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <a th:text="${usuario.Nome}"></a>
                                     </div>
                                 </div>
-                                <hr>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<h6 class="mb-0"><b th:text="#{email.text}"></b></h6>
+									</div>
+									<div class="col-sm-9 text-secondary">
+										<a th:text="${usuario.Email}"></a>
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<h6 class="mb-0"><b th:text="#{tel_cel.text}"></b></h6>
+									</div> 
+									<div class="col-sm-9 text-secondary">
+										<a th:text="${usuario.Telefone}"></a>
+									</div>                               
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<h6 class="mb-0"><b th:text="#{endereco.text}"></b></b></h6>
+									</div>
+									<div class="col-sm-9 text-secondary">
+										<a th:text="${prestador.Endereco}"></a>
+									</div>
+								</div> 
+								<button type="button" class="btn btn-outline-primary btn-sm" id="editar"  th:text="#{edicao.text}"></button>
+							</form>
+						</div>
+
+						<form th:action="@{/novoServico}">
+							<button type="submit" class="btn btn-outline-secondary" id="agendamento" th:text="#{add_servico.text}"></button>
+						</form> 
+						
+                        <div class="section-block" th:each="servico : ${servico}">
+							<form>
+								<div class="row">
+									<div class="col-sm-3">
+									<h6 class="mb-0"><b th:text="#{servico.text}"></b></h6>
+									</div>
+									<div class="col-sm-9 text-secondary">
+										<p th:text = "${servico.getModalidade()}"></p>
+									</div>
+								</div>
+								<hr>
+								<div class="row">
+									<div class="col-sm-3">
+										<h6 class="mb-0"><b th:text="#{atendimento.text}"></b></h6>
+									</div>
+									<div class="form-check form-check-inline">
+										<label class="form-check-label" for="inlineRadio1" th:text = "${servico.getLocaltrabalho()}"> </label>
+									</div>
+								</div>
+								<hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0" th:text="#{email.text}"></h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <a th:text="${usuario.Email}"></a>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0" th:text="#{tel_cel.text}"></h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <a th:text="${usuario.Telefone}"></a>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0" th:text="#{endereco.text}"></h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <a th:text="${prestador.Endereco}"></a>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-										<button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{edicao.text}"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <div class="container">
-                    <div class="col-2 align-self-start">
-                        <div class="row align-items-end">
-                            <form th:action="@{/novoServico}">
-                                <button type="submit" class="btn btn-outline-secondary" id="adicionar" th:text="#{add_servico.text}"></button>
-                            </form>    
-                        </div>
-                    </div>
-                </div>
-                    <div class="card4 mb-3">
-                        <div class="card-body" th:each="servico : ${servico}">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0" th:text="#{servico.text}"></h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <p th:text = "${servico.getModalidade()}"> </p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0" th:text="#{atendimento.text}"></h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <p th:text = "${servico.getLocaltrabalho()}"> </p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <form onsubmit="Checkfiles(this)">
-                                        <input type="file" name="arquivos" class="btn btn-light"  id="files" accept="image/png, image/jpeg"  multiple /> 
-                                        <script>
-                                            function Checkfiles(){
-                                                var fup = document.getElementById('filename');
-                                                var fileName = fup.value;
-                                                var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-    
-                                                if(ext =="jpeg" || ext=="png"){
-                                                    return true;
+                                        <form onsubmit="Checkfiles(this)">
+                                            <input type="file" name="arquivos" class="btn btn-light"  id="files" accept="image/png, image/jpeg"  multiple /> 
+                                            <script>
+                                                function Checkfiles(){
+                                                    var fup = document.getElementById('filename');
+                                                    var fileName = fup.value;
+                                                    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+        
+                                                    if(ext =="jpeg" || ext=="png"){
+                                                        return true;
+                                                    }
+                                                    else{
+                                                        return false;
+                                                    }
                                                 }
-                                                else{
-                                                    return false;
-                                                }
-                                            }
-                                        </script>
-                                    </form> <br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <button type="button" class="btn btn-outline-primary btn-sm" id="editar2" th:text="#{edicao.text}"></button>
-                                    <i class="fas fa-trash-alt"></i>
-                                    <!-- <form th:href="@{'/deletarServico?servico='  + ${servico.getElementById()}}">
-                                        <button type="submit" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></button>
-                                    </form> !-->
-                                    
-                                        <a th:href="@{'/deletarServico/' + ${servico.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></a>
-                                    
-                                </div>
-                                
-                            </div>  
-                        </div>
-                    </div> 
-            </div>
-        </div>
-    </div>
-    <script src="/js/app.js"></script>
-    <script src="/js/theme.js"></script>
-</body>
-</html> 
+                                            </script>
+                                        </form> <br>
+                                    </div>
+                                </div> <br>
+								<a th:href="@{'/deletarServico/' + ${servico.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<p>© <span class="credits font-weight-bold">        
+				<u>Hora Marcada</u> by Vingadores do Yahoo</a>
+			</span>
+			</p>
+		</footer>
+		<script src="/js/app.js"></script>
+    	<script src="/js/theme.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/js/main.js"></script>
+	</body>
+</html>

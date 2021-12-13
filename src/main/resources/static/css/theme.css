@@ -30,7 +30,7 @@ a, .a:hover {
   border-bottom: 1px solid #f1f1f1; }
 
 footer.footer {
-  border-top: 1px solid #f1f1f1; }
+  border-top: 1px solid #777777; }
 
 .nav-link, .dropdown-item {
   font-weight: 700; }
@@ -93,94 +93,6 @@ footer.footer {
   padding: 15px;
 }
 
-.card1 {
-  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.144), 0 1px 2px 0 rgba(0, 0, 0, 0.144);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  width: 680px;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  margin-top: -204%;
-  margin-left: 180%;
-}
-
-.card2 {
-  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.144), 0 1px 2px 0 rgba(0, 0, 0, 0.144);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  margin-top: -60px;
-}
-
-.card3 {
-  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.144), 0 1px 2px 0 rgba(0, 0, 0, 0.144);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  width: 120%;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  margin-top: 3%;
-  margin-left: -3%;
-}
-
-.card4 {
-  box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.144), 0 1px 2px 0 rgba(0, 0, 0, 0.144);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  width: 42.5em;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  margin-top: 2%;
-  margin-left: 24em;
-}
-
-.card-ag {
-  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.144), 0 1px 2px 0 rgba(0, 0, 0, 0.144);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-  margin-top: -51%;
-  margin-left: 53%;
-  width: 90%;
-}
-
-#navzinha{
-  position: absolute;
-}
-
-.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1rem;
-}
-
 #nomeperfil{
   margin-top: -10%;
   margin-left: 20%;
@@ -241,7 +153,6 @@ footer.footer {
   display: block;
   padding: 10px;
   text-align: center;
-
 }
 
 #menuprofile a{
@@ -258,105 +169,6 @@ footer.footer {
         margin: .4rem;
     }
     
-.btn-outline-primary, .btn-primary{
-    background-color: #ff9e1f !important;
-    color: #fff !important;
-    border-color: #ff9e1f !important;
-}
-
-.btn-outline-primary:hover, .btn-primary:hover{
-  background-color: #fc7b19 !important;
-  color: #fff !important;
-  border-color: #fc7b19 !important;
-}
-
-.btn-outline-secondary, .btn-secondary{
-  background-color: #ffffff !important;
-  color: #004a53 !important;
-  border-color: #004a53 !important;
-}
-
-.btn-outline-secondary:hover, .btn-secondary:hover{
-  background-color: #004a53 !important;
-  color: #fff !important;
-  border-color: #004a53 !important;
-}
-
-*{
-  margin: 0;
-  padding: 0;
-}
-
-.mb-0{
- float: left;
-  height: 46px;
-  padding: 0 10px;
-}
-.rate {
-  float: left;
-  height: 46px;
-  padding: 0 45px;
-}
-.rate:not(:checked) > input {
-  position:absolute;
-  top:-9999px;
-}
-.rate:not(:checked) > label {
-  float:right;
-  width:1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:30px;
-  color:#ccc;
-}
-.rate:not(:checked) > label:before {
-  content: '★ ';
-}
-.rate > input:checked ~ label {
-  color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-  color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
-}
-
-.agenda{
-    font-size:15px;
-    padding:10px 10px 10px 5px;
-    display:block;
-    width:400px;
-    border:none;
-    border-bottom:1px solid #757575;
-    height: 40px;
-}
-
-input:focus { 
-  outline:none; 
-}
-
-.fa-trash-alt{
-  float: right;
-  margin-top: 10px;
-  color: #6d6d6d;
-}
-
-.fa-trash-alt:hover {
-  color: #1f1f1f;
-}
-
-#files{
-  border-style: none;
-  background-color: #fff !important;
-}
-
 .col-md-8 h4{
   margin-top: -6%;
 }
