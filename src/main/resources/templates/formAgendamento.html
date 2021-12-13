@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">> 
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 		<meta name="keywords" content="HTML5 Crowdfunding Profile Template">
 		<meta name="author" content="Audain Designs">
 		<title>Agendamento</title>
-		<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+		<script> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/style-perfil.css" rel="stylesheet">
         <link href="assets/fontawesome/css/all.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 					<div class="content col-md-8 col-sm-12 col-xs-12">
 						<h4 th:text="#{form.text}"></h4> <br>
 						<div class="section-block">
-							<form action="/salvarAgendamento" method="post" th:object="${cadastroAgendamento}">
+							<form action="/salvarAgendamento" method="post" th:object="${cadastroAgendamento}s">
                                 <div class="row">
                                     <div class="col-sm-3">
                                        <h6 class="mb-0"><label for="name" th:text="#{prestador.text}"></label></h6>
@@ -83,7 +83,7 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0"><label for="horario" th:text="#{horario.text}"></label></h6>
                                     </div>
-                                    <input name="data" type="text" required class="agenda" id="horario"><span class="highlight"></span>
+                                    <input name="data" type="text" required class="agenda" id="horario2"><span class="highlight"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
@@ -107,14 +107,13 @@
 		</div>
 		<footer class="footer">
 			<p>© <span class="credits font-weight-bold">        
-				<u>Hora Marcada</u> by Vingadores do Yahoo</a>
+				<u>Hora Marcada</u> by Vingadores do Yahoo
 			</span>
 			</p>
 		</footer>
 	    <script src="/js/app.js"></script>
-        <script src="/js/theme.js"></script>
-		<script type="text/javascript" src="assets/js/jquery-1.12.3.min.js"></script>
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="assets/js/main.js"></script>
+		<script  src="assets/js/jquery-1.12.3.min.js"></script>
+		<script  src="assets/js/bootstrap.min.js"></script>
+		<script  src="assets/js/main.js"></script>
 	</body>
 </html>
