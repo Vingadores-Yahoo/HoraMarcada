@@ -72,7 +72,7 @@
                             <form action="salvarServico" method="post" th:object="${cadastroServico}" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                       <h6 class="mb-0"><label for="name" th:text="#{modalidade.text}">M</label></h6>
+                                       <h6 class="mb-0"><label th:text="#{modalidade.text}">M</label></h6>
                                     </div>
                                     <p th:each="modalidade : ${modalidade}">
                                         <input th:field="*{modalidade}" type="radio" name="modalidade" th:value="${modalidade}">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0"><label for="telefone" th:text="#{localT.text}"></label></h6>
+                                        <h6 class="mb-0"><label th:text="#{localT.text}"></label></h6>
                                     </div>
                                     <p th:each="localtrabalho: ${localtrabalho}">
                                         <input name="localtrabalho" th:field="*{localtrabalho}" type="radio" th:value="${localtrabalho}">

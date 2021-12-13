@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">> 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="unititled">
-		<meta name="keywords" content="HTML5 Crowdfunding Profile Template">
-		<meta name="author" content="Audain Designs">
-		<title>Meu Perfil</title>
-		<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/css/style-perfil.css" rel="stylesheet">
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-	</head>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="unititled">
+	<meta name="keywords" content="HTML5 Crowdfunding Profile Template">
+	<meta name="author" content="Audain Designs">
+	<title>Meu Perfil</title>
+	<script> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/style-perfil.css" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
 			<a class="navbar-brand font-weight-bolder mr-3" th:href="@{/}"><img src="/fotos/logo.png" alt="logo"></a>
@@ -94,7 +95,7 @@
 								<hr>
 								<div class="row">
 									<div class="col-sm-3">
-										<h6 class="mb-0"><b th:text="#{endereco.text}"></b></b></h6>
+										<h6 class="mb-0"><b th:text="#{endereco.text}"></b></h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
 										<a th:text="${prestador.Endereco}"></a>
@@ -130,23 +131,8 @@
 								<hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <form onsubmit="Checkfiles(this)">
-                                            <input type="file" name="arquivos" class="btn btn-light"  id="files" accept="image/png, image/jpeg"  multiple /> 
-                                            <script>
-                                                function Checkfiles(){
-                                                    var fup = document.getElementById('filename');
-                                                    var fileName = fup.value;
-                                                    var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
-        
-                                                    if(ext =="jpeg" || ext=="png"){
-                                                        return true;
-                                                    }
-                                                    else{
-                                                        return false;
-                                                    }
-                                                }
-                                            </script>
-                                        </form> <br>
+                                        <img class="card-img" th:src="${servico.getUrlFotos()}" alt="Imagem Serviço">
+									<br>
                                     </div>
                                 </div> <br>
 								<a th:href="@{'/deletarServico/' + ${servico.getId()}}" class="btn btn-outline-primary btn-sm" id="editar" th:text="#{apagar.text}"></a>
